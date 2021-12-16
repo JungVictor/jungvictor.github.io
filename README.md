@@ -1,6 +1,7 @@
 # Basic usage
 This page will cover everything you have to know to get started with the creation of a MDD.
 
+***
 ## Creating a MDD
 To create a MDD, you have different options available : 
 * From scratch, call the static function from MDD to allocate a new MDD : `MDD.create()`
@@ -15,7 +16,7 @@ After creating the MDD, you want to specify its size, which means the number of 
 
 > **See also** : [Memory Management](https://github.com/JungVictor/MDDLib/wiki/Memory-Management)
 
-
+***
 ## Adding and removing a Node
 
 ### Adding a node
@@ -37,7 +38,7 @@ To remove a node, you have to remove all references of it (remove it from its pa
 
 > **See also** : [Nodes](https://github.com/JungVictor/MDDLib/wiki/Structure-and-elements#nodes), [Layers](https://github.com/JungVictor/MDDLib/wiki/Structure-and-elements#layers)
 
-
+***
 ## Adding and removing an arc
 
 ### Adding an arc
@@ -50,11 +51,13 @@ I already talked about the second method in the previous section about adding a 
 ### Removing an arc
 To remove an arc, you have to remove its references from both the parent (source) and the child (destination). As for the node's case, you can do it manually by call methods from the Node class, but you may prefer to simply call the `mdd.removeArc(Node source, int arcValue)`.
 
+***
 ## Reducing the MDD
 The final step is to reduce the MDD, in order to compress it and remove useless nodes and arcs. To do so, simply call the function `mdd.reduce()`. This will create the terminal node `tt`.
 
 > **See also** : [Reduction](https://github.com/JungVictor/MDDLib/wiki/Operations#reduction)
 
+***
 ## Example
 This is an example that compute the _universal mdd_ of size 10 over the domain V = {0, 1, 2, 3}.
 ```java
