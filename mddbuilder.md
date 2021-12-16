@@ -1,0 +1,199 @@
+# MDDBuilder
+
+## Common MDD
+### Universal
+**Definition** :  
+The universal MDD is the MDD that contains every possible solutions for a given domain. That is, `MDDUniversal ∩ MDD = MDD` and `MDDUniversal ∪ MDD = MDDUniversal`.  
+
+**Creation** :  
+`MDDBuilder.universal(MDD mdd, ArrayOfInt V, int size)`  
+> `mdd` is the MDD that will stock the result, `V` is the domain of the MDD and `size` is the size of the MDD.
+
+**Example** :  
+```java
+// V = {0,1,2,3,4}
+ArrayOfInt V = ArrayOfInt.crete(5);
+for(int i = 0; i < V.length(); i++) V.set(i,i);
+MDD universal = MDDBuilder.universal(MDD.create(), V, 10);
+```
+
+## Constraints
+### Among
+**Definition** :  
+Given `X` a set of variables, `l` and `u` two integers with `l <= u` and `V` a set of values.  
+The **among** constraint ensures that at least `l` variables of `X` and at most `u` will take a value in `V`.  
+Consider each variable's domain to be `D = {0,1,2}`, `V = {1}`, `l = 1` and `u = 2`. For a solution of size 5, we can have :  
+```java
+[0,1,2,1,0] is a solution because the value 1 is taken two times (l <= 2 <= u)
+[0,2,2,0,2] is not a solution because the value 1 is never taken  (0 < l)
+[1,1,0,2,1] is not a solution because the value 1 is taken three times  (u < 3)
+````
+
+**Creation** :  
+`MDDBuilder.among(MDD mdd, int q, int min, int max)`  
+`MDDBuilder.among(MDD mdd, SetOf<Integer> D, SetOf<Integer> V, int q, int min, int max)`  
+> `mdd` is the MDD that will stock the result, `q` is the size of the MDD, `min (= l)` is the minimum and `max (= u)` is the maximum number of time a value must be taken.  
+> `D` and `V` are respectively the domains of variables and V the values that are constrained. In particular, `V` is a subset of `D`.
+
+**Example** :  
+```java
+MDD among = MDDBuilder.among(MDD.create(), 5, 1, 2); // D = {0,1}, V = {1}
+
+SetOf<Integer> D = Memory.SetOfInteger();
+SetOf<Integer> V = Memory.SetOfInteger();
+for(int i = 0; i < 5; i++) {
+    D.add(i); V.add(i);
+}
+for(int i = 5; i < 10; i++) D.add(i);
+MDD among10 = MDDBuilder.among(MDD.create(), D, V, 5, 1, 2);
+```
+
+***
+
+### Sequence
+**Definition** :  
+The **sequence** constraint is a conjunction of sliding **among** constraints.  
+Given `X` a set of variables, `q`, `l` and `u` three integers with `l <= u` and `V` a set of values. The **sequence** constraint holds if and only if for `1 <= i <= n[q]+1`, `among({x[i],...,x[i+q−1]}, V, l, u)` holds.  
+Consider the same example as the among constraint. We consider the sequence constraint defined over 6 variables.
+```java
+[0,1,2,1,0,1] is not a solution : 
+[0,1,2,1,0]   taken two times (l <= 2 <= u)
+  [1,2,1,0,1] taken three times (u < 3)
+
+[1,0,0,2,1,0] is a solution
+[1,0,0,2,1]   taken two times (l <= 2 <= u)
+  [0,0,2,1,0] taken one time (l <= 1 <= u)
+````
+
+**Creation** :  
+`MDDBuilder.sequence(MDD mdd, int q, int min, int max, int size)`  
+`MDDBuilder.sequence(MDD mdd, SetOf<Integer> D, SetOf<Integer> V, int q, int min, int max, int size)`  
+> `mdd` is the MDD that will stock the result, `q` is the size of the **among** constraint, `min (= l)` is the minimum and `max (= u)` is the maximum number of time a value must be taken, and `size` is the size of the MDD.
+> `D` and `V` are respectively the domains of variables and V the values that are constrained. In particular, `V` is a subset of `D`.
+
+**Example** :  
+```java
+MDD sequence = MDDBuilder.sequence(MDD.create(), 5, 1, 2, 6); // D = {0,1}, V = {1}
+
+SetOf<Integer> D = Memory.SetOfInteger();
+SetOf<Integer> V = Memory.SetOfInteger();
+for(int i = 0; i < 5; i++) {
+    D.add(i); V.add(i);
+}
+for(int i = 5; i < 10; i++) D.add(i);
+MDD among10 = MDDBuilder.among(MDD.create(), D, V, 5, 1, 2, 6);
+```
+
+> **Note** :  
+> In certain case, it is better to generate over a binary domain. You can call the [replace arcs' values function](https://github.com/JungVictor/MDDLib/wiki/Operations#replace-arcs-values) over the MDD to replace the 1 by `V` and 0 by `D \ V`.
+> It can be better in the case of intersection with other constraints defined over the same `D` and `V` and that can be abstracted to a binary model without loss. For instance, the GCC defined over the binary domain is simply a sum.
+
+***
+
+### Sum
+**Definition** :  
+Given `X` a set of variables, `l` and `u` two integers with `l <= u` and `V` a set of values.  
+The **sum** constraint ensures that the sum of values taken by the variables of `X` is at least `l` and at most `u`.  
+
+**Creation** :  
+`MDDBuilder.sum(MDD mdd, int s_min, int s_max, int size, SetOf<Integer> V)`  
+> `mdd` is the MDD that will stock the result, `s_min (= l)` is the minimum and `s_max (= u)` is the maximum value of the sum, `size` is the size of the MDD and `V` is the set of values.  
+
+You can also call the variants :  
+- `MDDBuilder.sum(MDD mdd, int s, int size, SetOf<Integer> V)` where s_min = s_max = s
+- `MDDBuilder.sum(MDD mdd, int s, int size)` where s_min = s_max = s and `V = {0,1}`
+
+**Example** :  
+```java
+// V = {0,1,2,3,4,5,6,7}
+SetOf<Integer> V = Memory.SetOfInteger();
+for(int i = 0; i < 8; i++) V.add(i);
+MDD sum = MDDBuilder.sum(MDD.create(), 10, 20, 10, V); // sum of 10 variables between 10 and 20 with V = [0,7]
+MDD binsum = MDDBuilder.sum(MDD.create(), 5, 12); // sum of 12 variables is 5 with V = {0,1}
+```
+
+***
+
+### GCC
+**Definition** :  
+A **global cardinality constraint** is a constraint in which each value `v[i] ∈ V` is associated with two positive integers `l[i]` and `u[i]` with `l[i] <= u[i]`. Each value `v[i]` must be taken between `l[i]` and `u[i]` times.  
+Consider `V = {0,1,2,3}` and the associations `0 -> [1, 3]` and `1 -> [0, 2]`.
+```java
+[0,2,3,3,2] is a solution
+[1,2,3,3,2] is not a solution (0 is never appearing)
+[1,2,0,1,1] is not a solution (1 is appearing three times)
+```
+
+**Creation** :  
+`MDDBuilder.gcc(MDD mdd, int size, MapOf<Integer, TupleOfInt> couples, SetOf<Integer> D)`  
+> `mdd` is the MDD that will stock the result, `size` is the size of the MDD, `couples` is the map of associations and `D` is the domain.
+
+**Example** :  
+```java
+// V = {0,1,2,3}
+SetOf<Integer> V = Memory.SetOfInteger();
+for(int i = 0; i < 4; i++) V.add(i);
+
+MapOf<Integer, TupleOfInt> couples = Memory.MapOfIntegerTupleOfInt();
+couples.put(0, TupleOfInt.create(1,3)); // 0 -> [1, 3]
+couples.put(1, TupleOfInt.create(0,2)); // 1 -> [0, 2]
+
+MDD gcc = MDDBuilder.gcc(MDD.create(), 5, couples, V);
+```
+
+***
+
+### AllDiff
+**Definition** :  
+Given `X` a set of variables, and `V` a set of values.  
+The **alldiff** constraint ensures that all values taken in `V` by the variables of `X` are all different.  
+**Remark** : The **alldiff** constraint is a GCC where each value `v ∈ V` is binded to `v -> [1, 1]`.  
+
+**Creation** :  
+`MDDBuilder.alldiff(MDD mdd, SetOf<Integer> D, SetOf<Integer> V, int size)`  
+or `MDDBuilder.alldiff(MDD mdd, SetOf<Integer> V, int size)`  
+> `mdd` is the MDD that will stock the result, `V` is the set of values that are constrained, `D` is the domain, and `size` is the size of the MDD.
+
+**Example** :  
+```java
+// V = {0,1,2,3}
+SetOf<Integer> V = Memory.SetOfInteger();
+for(int i = 0; i < 4; i++) V.add(i);
+MDD alldiff = MDDBuilder.alldiff(MDD.create(), V, 4);
+```
+
+> **Note** :  
+> If `D = V` then the size of the alldiff MDD is *at most* `|V|` (otherwise, the constraint cannot be satisfied).
+
+***
+
+### Inequalities
+**Definition** :  
+Given `X` a set of variables, and `V` a set of values and `OP` an inequality operator (`<`, `<=`, `>`, `>=`, `==`, `!=`).  
+The inequality MDD ensures that, for every `x[i] ∈ X`, `x[i] OP x[i+1]`
+```java
+[0,1,2,3,4] is a solution for OP = {<, <=, !=}.
+[0,0,1,2,4] is a solution for OP = {<=}.
+[4,3,2,1,0] is a solution for OP = {>, >=, !=}
+[0,1,0,1,0] is a solution for OP = {!=}.
+```
+ 
+**Creation** :  
+- `<` : `MDD lt(MDD mdd, int size, ArrayOfInt V)` 
+- `<=` : `MDD leq(MDD mdd, int size, ArrayOfInt V)`  
+- `>` : `MDD gt(MDD mdd, int size, ArrayOfInt V)`  
+- `>=` : `MDD geq(MDD mdd, int size, ArrayOfInt V)`  
+- `==` : `MDD eq(MDD mdd, int size, ArrayOfInt V)`  
+- `!=` : `MDD neq(MDD mdd, int size, ArrayOfInt V)`  
+> 
+
+**Example** :  
+```java
+// V = {0,1,2,3,4}
+ArrayOfInt V = Memory.ArrayOfInt(5);
+for(int i = 0; i < V.length(); i++) V.set(i,i);
+
+MDD lt = MDDBuilder.lt(MDD.create(), 5, V);   // <
+MDD geq = MDDBuilder.geq(MDD.create(), 5, V); // >=
+MDD neq = MDDBuilder.neq(MDD.create(), 5, V); // !=
+```
