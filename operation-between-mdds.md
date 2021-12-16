@@ -42,7 +42,7 @@ Computing the concatenation of two MDDs means to replace the second mdd's root t
 This operation is implemented using the `copy` operator, described [here](https://github.com/JungVictor/MDDLib/wiki/Operations#copy). It simply completely copies the first MDD, then associates the last node of the copied MDD to the root of the second mdd, then copy the second mdd from there.  
 
 !> **Note** :  
-> This function returns a **NEW** MDD that is the concatenation, it does not directly contatenate the second mdd to the first !  
-> As a consequence, you can concatenate multiple times the exact same MDD.
+This function returns a **NEW** MDD that is the concatenation, it does not directly contatenate the second mdd to the first !  
+As a consequence, you can concatenate multiple times the exact same MDD.
 
 This is a n-ary operation, so you can either call it as `Operation.concatenate(MDD mdd1, MDD mdd2)` or `Operation.concatenate(ArrayOf<MDD> mdds)` if you need to concatenate more than two mdds.
