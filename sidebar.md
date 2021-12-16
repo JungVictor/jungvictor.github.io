@@ -8,7 +8,7 @@
 - [On the fly operations](on-the-fly-operations)
 - **Builder**
 - [MDDBuilder](mddbuilder)
-- [Parameters & States](parameters-states)
+- [Parameters & States](parameters-and-states)
 - **Custom**
 - [Implementing an MDD](implementing-an-mdd)
 - [Implementing a State](implementing-a-state)
