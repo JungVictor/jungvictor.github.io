@@ -1,8 +1,8 @@
 # Basic usage
-This page will cover everything you have to know to get started with the creation of a MDD.
+This page will cover everything you have to know to get started with the creation of an MDD.
 
-## Creating a MDD
-To create a MDD, you have different options available : 
+## Creating an MDD
+To create an MDD, you have different options available : 
 * From scratch, call the static function from MDD to allocate a new MDD : `MDD.create()`
 * From an already existing MDD : `mdd.MDD()`
 
@@ -11,9 +11,9 @@ Alternatively, you can call the constructor with the `new` method, but then you'
 After creating the MDD, you want to specify its size, which means the number of layer it will contains. To do so, call the function `mdd.setSize(int size)`. This is really important as it allocate and add layers to the MDD.
 
 > **Note** :  
-> You can also specify which node you want as a root when creating a MDD by passing it as an argument. Example : `MDD.create(Node myRoot)`.
+> You can also specify which node you want as a root when creating an MDD by passing it as an argument. Example : `MDD.create(Node myRoot)`.
 
-> **See also** : [Memory Management](https://github.com/JungVictor/MDDLib/wiki/Memory-Management)
+?> **See also** : [Memory Management](allocatorof)
 
 
 ## Adding and removing a Node
@@ -35,7 +35,7 @@ The first method will simply add the node `myNode` to the specified layer's leve
 To remove a node, you have to remove all references of it (remove it from its parents' children list, and from its children's parents list) and removing it from its layer. While you can manually do it calling the methods from the Node and Layer classes, you can simply achieve it by calling the MDD method `mdd.removeNode(Node myNode, int layer)`. This method will also free the removed node.
 
 
-> **See also** : [Nodes](https://github.com/JungVictor/MDDLib/wiki/Structure-and-elements#nodes), [Layers](https://github.com/JungVictor/MDDLib/wiki/Structure-and-elements#layers)
+?> **See also** : [Nodes](structure-and-elements?id=nodes), [Layers](structure-and-elements?id=layers)
 
 
 ## Adding and removing an arc
@@ -45,7 +45,7 @@ To add an arc to the MDD, you can use two options :
 * Call the method `mdd.addArc(Node source, int arcValue, Node destination)`
 * Call the method `mdd.addArcAndNode(Node source, int arcValue, Node destination, int layer)`
 
-I already talked about the second method in the previous section about adding a node the the MDD. The first option is always better than the second one in term of complexity, because the second perform an additional operation to check whether the node is already existing in the MDD or not. If you don't know if the destination node is in the MDD, prefer the second option.
+The first option is always better than the second one in term of complexity, because the second perform an additional operation to check whether the node is already existing in the MDD or not. If you don't know if the destination node is in the MDD, prefer the second option.
 
 ### Removing an arc
 To remove an arc, you have to remove its references from both the parent (source) and the child (destination). As for the node's case, you can do it manually by call methods from the Node class, but you may prefer to simply call the `mdd.removeArc(Node source, int arcValue)`.
@@ -54,7 +54,7 @@ To remove an arc, you have to remove its references from both the parent (source
 ## Reducing the MDD
 The final step is to reduce the MDD, in order to compress it and remove useless nodes and arcs. To do so, simply call the function `mdd.reduce()`. This will create the terminal node `tt`.
 
-> **See also** : [Reduction](https://github.com/JungVictor/MDDLib/wiki/Operations#reduction)
+?> **See also** : [Reduction](operation-on-the-mdd?id=reduction)
 
 
 ## Example
