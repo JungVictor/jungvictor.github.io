@@ -44,25 +44,25 @@ body{
 	align-items: center;
 
 	padding: 10px;
-	border: 1px solid #AAA;
-	border-bottom: 3px solid #AAA;
-	background-color: lightblue;
+	border: 1px solid #044283;
+	border-bottom: 3px solid #044283;
+	background-color: #0764c2;
 	cursor: pointer;
+	color: white;
 }
+#menu > .button:hover { background-color: #1584c4; border-color: #0558ad; }
 
-#menu > .button:first-child{
-	border-radius: 10px 0 0 10px;
-}
+
+#menu > .button:first-child{ border-radius: 10px 0 0 10px; }
 
 #menu > .button:last-child{
 	border-radius: 0 10px 10px 0;
 	background-color: #bbb;
+	border-color: #888;
 	cursor: default;
+	color: #333;
 }
-
-#menu > .button:hover {
-
-}
+#menu > .button:last-child:hover { background-color: #bbb; }
 
 #name{
 	position: fixed;
