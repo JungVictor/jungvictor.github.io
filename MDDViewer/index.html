@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<title>MDDViewer</title>
+</head>
+<body>
+
+	<style type="text/css">
+		html{
+			height: 100%;
+			font-family: "Roboto";
+			background-color: #EEE;
+		}
+
+		body{
+			margin: 0;
+			padding: 20px;
+			height: 100%;
+			min-width: 100%;
+			box-sizing: border-box;
+		}
+
+		#output{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#output > * {
+			justify-self: center;
+		}
+
+		.column {
+			display: flex;
+			flex-flow: column nowrap;
+			height: 100%;
+			width: 100%;
+		}
+
+		#menu {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: right;
+			width: 100%;
+			height: 50px;
+		}
+
+		#menu > .button{
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			align-items: center;
+
+			padding: 10px;
+			border: 1px solid #AAA;
+			border-bottom: 3px solid #AAA;
+			background-color: lightblue;
+			cursor: pointer;
+		}
+
+		#menu > .button:first-child{
+			border-radius: 10px 0 0 10px;
+		}
+
+		#menu > .button:last-child{
+			border-radius: 0 10px 10px 0;
+			background-color: #bbb;
+			cursor: default;
+		}
+
+		#menu > .button:hover {
+
+		}
+
+		#name{
+			position: fixed;
+			top: 20px;
+			left: 20px;
+			padding: 10px;
+			font-weight: bold;
+		}
+
+		svg{
+			height: 100%;
+			width: 100%;
+			cursor: move;
+		}
+
+		#output {
+			flex-grow: 1;
+			margin-top: 10px;
+			border: 2px solid #aaa;
+			border-radius: 10px;
+			background-color: white;
+			overflow: hidden;
+		}
+
+		input[type=number] {
+			-moz-appearance: textfield;
+		    appearance: textfield;
+			width: 40px;
+			margin: 0;
+			text-align: center;
+			padding: 4px;
+			height: 100%;
+			margin-left: 10px;
+			font-family: "Roboto";
+			font-size: 20px;
+			background-color: rgba(255,255,255,0.5);
+			outline: none;
+			border: 1px solid rgba(0,0,0,0.4);
+		}
+
+		input[type=number]::-webkit-inner-spin-button, 
+		input[type=number]::-webkit-outer-spin-button { 
+		    -webkit-appearance: none; 
+		    margin: 0; 
+		}
+
+		#input{
+			width: 400px;
+			overflow: hidden;
+		}
+	</style>
+
+<script type="text/javascript" src="viz/viz.js"></script>
+<script type="text/javascript" src="viz/lite.render.js"></script>
+<script type="text/javascript" src="viz/svg-pan-zoom.min.js"></script>
+
+<div style="display:none" id="dot"></div>
+
+<script type="text/javascript">
+	var viz = new Viz();
+	function render(){
+		document.getElementById("output").innerHTML = "LOADING...";
+	  	viz.renderSVGElement(document.getElementById("dot").innerText)
+	  	.then(function(element) {
+			document.getElementById("output").innerHTML = "";
+	  		document.getElementById("output").appendChild(element);
+	  		let zoom = svgPanZoom(element, {
+	  			controlIconsEnabled: true,
+	  			fit:false,
+	  		});
+	  	})
+	  	.catch(error => {
+	    	viz = new Viz();
+	  	});
+  	}
+
+  	function save(){
+  		let scale = document.getElementById("scale").value;
+  		if(scale <= 0) {
+  			alert("The render scale cannot be <= 0 !");
+  			return;
+  		}
+	  	viz.renderImageElement(document.getElementById("dot").innerText, {scale:scale})
+	  	.then(function(element) {
+	  		//console.log(element.src);
+		    var link = document.createElement("a");
+		    link.download = document.getElementById("name").innerText +".png";
+		    link.href = element.src;
+		    link.click();
+	  	})
+	  	.catch(error => {
+	    	viz = new Viz();
+	  	});
+  	}
+
+  	let reader = new FileReader();
+
+  	function read(filePath){
+  		var output = "";
+        if(filePath.files && filePath.files[0]) {
+        	let name = filePath.files[0].name;
+        	document.getElementById("name").innerText = name.substring(0, name.length - 4);
+            reader.onload = function (e) {
+                output = e.target.result;
+                document.getElementById("dot").innerText = output;
+            };
+            reader.readAsText(filePath.files[0]);
+        }
+        else if(ActiveXObject && filePath) {
+            try {
+                reader = new ActiveXObject("Scripting.FileSystemObject");
+                var file = reader.OpenTextFile(filePath, 1); //ActiveX File Object
+                output = file.ReadAll(); //text contents of file
+                file.Close(); //close file "input stream"
+                document.getElementById("dot").innerText = output;
+            } catch (e) {
+                if (e.number == -2146827859) {
+                    alert('Unable to access local files due to browser security settings. ' + 
+                     'To overcome this, go to Tools->Internet Options->Security->Custom Level. ' + 
+                     'Find the setting for "Initialize and script ActiveX controls not marked as safe" and change it to "Enable" or "Prompt"'); 
+                }
+            }       
+        }
+        else return false;
+        return true;
+  	}
+
+</script>
+
+<div id="name"></div>
+
+<input id="fileInput" type="file" style="display:none;" onchange="read(this)" />
+
+<div class="column">
+
+	<div id="menu">
+		<div class="button" onclick="document.getElementById('fileInput').click();">UPLOAD FILE</div>
+		<div class="button" onclick="render()">RENDER AS SVG</div>
+		<div class="button" onclick="save()">SAVE AS PNG</div>
+		<div class="button">PNG SCALE
+			<input type="number" id="scale" name="SCALE" class="button" min="0.5" value="2.0"></input>
+		</div>
+	</div>
+
+	<div id="output">
+		UPLOAD A .DOT FILE USING THE BUTTON ON THE TOP RIGHT CORNER, THEN RENDER AS SVG TO PREVIEW THE MDD HERE.
+	</div>
+
+</div>
+
+</body>
+</html>
