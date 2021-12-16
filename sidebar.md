@@ -1,4 +1,19 @@
 <!-- markdownlint-disable-next-line first-line-heading -->
-- [Basic usage](README)
+- **Introduction**
+- [Basic usage](basic-usage)
+- [Structure & Elements](structure-and-elements)
+- **Operations**
+- [Operations between MDDs](operation-between-mdds)
+- [Operations on the MDD](operation-on-the-mdd)
+- [On the fly operations](on-the-fly-operations)
+- **Builder**
+- [MDDBuilder](mddbuilder)
+- [Parameters & States](parameters-states)
+- **Custom**
+- [Creating your own MDD](creating-your-own-mdd)
+- [Creating your own State](creating-your-own-state)
+- **Memory Management**
+- [AllocatorOf](allocatorof)
+- [MemoryPool](memorypool)
 - **Links**
 - [Github](https://github.com/jungvictor/MDDLib)
