@@ -14,7 +14,10 @@ After creating the MDD, you want to specify its size, which means the number of 
 > You can also specify which node you want as a root when creating a MDD by passing it as an argument. Example : `MDD.create(Node myRoot)`.
 
 > **See also** : [Memory Management](https://github.com/JungVictor/MDDLib/wiki/Memory-Management)
+
+
 ## Adding and removing a Node
+
 ### Adding a node
 In order to add a Node to the MDD, you first have to create one. As for the MDD, you have two _main_ options to do so : 
 * From scratch, call the static function from Node to allocate a new Node : `Node.create()`
@@ -33,7 +36,10 @@ To remove a node, you have to remove all references of it (remove it from its pa
 
 
 > **See also** : [Nodes](https://github.com/JungVictor/MDDLib/wiki/Structure-and-elements#nodes), [Layers](https://github.com/JungVictor/MDDLib/wiki/Structure-and-elements#layers)
+
+
 ## Adding and removing an arc
+
 ### Adding an arc
 To add an arc to the MDD, you can use two options : 
 * Call the method `mdd.addArc(Node source, int arcValue, Node destination)`
