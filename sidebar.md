@@ -10,8 +10,8 @@
 - [MDDBuilder](mddbuilder)
 - [Parameters & States](parameters-states)
 - **Custom**
-- [Creating your own MDD](creating-your-own-mdd)
-- [Creating your own State](creating-your-own-state)
+- [Implementing an MDD](implementing-an-mdd)
+- [Implementing a State](implementing-a-state)
 - **Memory Management**
 - [AllocatorOf](allocatorof)
 - [MemoryPool](memorypool)
