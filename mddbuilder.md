@@ -185,7 +185,7 @@ The inequality MDD ensures that, for every `x[i] ∈ X`, `x[i] OP x[i+1]`
 - `>=` : `MDD geq(MDD mdd, int size, ArrayOfInt V)`  
 - `==` : `MDD eq(MDD mdd, int size, ArrayOfInt V)`  
 - `!=` : `MDD neq(MDD mdd, int size, ArrayOfInt V)`  
-> 
+
 
 **Example** :  
 ```java
