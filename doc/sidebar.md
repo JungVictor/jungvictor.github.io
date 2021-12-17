@@ -11,7 +11,7 @@
 - [Parameters & States](parameters-and-states)
 - **Custom**
 - [Implementing an MDD](implementing-an-mdd)
-- [Implementing a State](implementing-a-state)
+- [Implementing a constraint](implementing-a-constraint)
 - **Memory Management**
 - [AllocatorOf](allocatorof)
 - [MemoryPool](memorypool)
