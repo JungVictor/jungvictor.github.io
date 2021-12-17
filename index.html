@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link id="stylesheet" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
   
 </head>
 <body>
@@ -16,10 +16,28 @@
       position: fixed;
       top: 10px;
       right: 10px;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 3px;
     }
   </style>
 
-  <div id="theme-selector">Dark</div>
+  <script type="text/javascript">
+    function toggleTheme(element){
+      let css = document.getElementById("stylesheet");
+      // Dark theme
+      if(css.href == "https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css") {
+        css.href = "https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css";
+        element.innerHTML = "<i class="fa-solid fa-lightbulb"></i>"
+      } else {
+        css.href = "https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css";
+        element.innerHTML = "<i class="fa-solid fa-moon"></i>";
+      }
+    }
+  </script>
+
+  <div id="theme-selector" onclick="toggleElement(this)"><i class="fa-solid fa-lightbulb"></i></div>
 
   <div id="app"></div>
   <script>
