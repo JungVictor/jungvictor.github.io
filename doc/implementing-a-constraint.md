@@ -1,6 +1,8 @@
 # Implementing a constraint
 
-This section will detail how to implement a constraint. 
+This section will detail how to implement a constraint.  
+
+?> [States & Parameters](states-and-parameters)
 
 ## Parameters
 
