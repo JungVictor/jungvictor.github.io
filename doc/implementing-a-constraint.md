@@ -167,7 +167,7 @@ You do not need to specify a Domains or a size, because the function will automa
 Here is a possible implementation :
 
 ```java
-public static MDD myConstraint(MDD result, int size, ...) {
+public static MDD myConstraint(MDD result, MDD mdd, int size, ...) {
 	SNode snode = SNode.create();
 
 	// some initialisation / pre-computation ... ?
