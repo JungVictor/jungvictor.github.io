@@ -3,7 +3,7 @@ This library allows you to create your own MDD with custom operations or propert
 When creating your own structures, it is recommended to use the default Memory Management pattern, so don't hesitate to pay a visit to this page : [Memory Management](allocatorof).
 
 ## MDD
-To create a custom MDD structure, just create a new class that extends a MDD class, for instance `class MyMDD extends MDD` for the base MDD structure. You will then have to create a constructor matching the `super` one, and implement the `create` functions according to the design pattern for the memory management : [Allocable](https://github.com/JungVictor/MDDLib/wiki/Memory-Management#allocable)
+To create a custom MDD structure, just create a new class that extends a MDD class, for instance `class MyMDD extends MDD` for the base MDD structure. You will then have to create a constructor matching the `super` one, and implement the `create` functions according to the design pattern for the memory management : [Allocable](allocatorof?id=allocable)
 ```java
 public MyMDD(int allocatedIndex){
     super(allocatedIndex);
@@ -46,6 +46,80 @@ And... that's all. You can now implement custom methods and add custom propertie
 
 > **Small note on the `Node()` function in the MDD :**  
 > When overriding the function, you might want to follow the base pattern, that is to first ask the root to produce a Node of the same type, then produce a predefined Node type if the root does not exist. This permit to create a new type of Node without having to create a new type of MDD (to override the `Node()` function), which is more flexible.
+
+### Full example
+```java
+public class MyMDD extends MDD {
+
+    // Allocable variables
+    // Thread safe allocator
+    private final static ThreadLocal<Allocator> localStorage = ThreadLocal.withInitial(Allocator::new);
+    // Index in Memory
+    private final int allocatedIndex;
+
+
+    //**************************************//
+    //           INITIALISATION             //
+    //**************************************//
+
+    // You can have multiples constructors with different arguments
+    // BUT you must ALWAYS have the allocatedIndex as an argument.
+    // You basically want to make private your constructor so that the user can't create an object
+    // by using the "new" keyword
+    private MyMDD(int allocatedIndex){ super(allocatedIndex); }
+
+    // To get a "new" object, you will have to ask the allocator first. 
+    // Because we made the allocator Thread Safe, you must implement a function that will return the allocator.
+    private static Allocator allocator(){ return localStorage.get(); }
+
+    // This will be the "new constructor". You can have the parameters you want here. 
+    // You can declare multiple create functions with differents parameters, but they must all have the same shape :
+    public static MyMDD create(){
+        MyMDD mdd = allocator().allocate();
+        mdd.setRoot(mdd.Node());
+        return mdd;
+    }
+
+    public static MyMDD create(Node root){
+        MyMDD mdd = allocator().allocate();
+        mdd.setRoot(root);
+        return mdd;
+    }
+
+    @Override
+    public MDD MDD(){
+        return MyMDD.create();
+    }
+
+    @Override
+    public Node Node(){
+        return MyNode.create();
+    }
+
+    @Override
+    public void setRoot(Node node){
+        if(node instanceof MyNode) super.setRoot(node);
+        else throw new InputMismatchException("Expected the root to be at least a MyNode !");
+    }
+
+
+    //**************************************//
+    //           MEMORY FUNCTIONS           //
+    //**************************************//
+    // Implementation of Allocable interface
+
+    @Override
+    public int allocatedIndex(){ return allocatedIndex; }
+
+    @Override
+    public void free(){
+        // clean all references and
+        // free the variables you have to
+
+        super.free();
+    }
+}
+```
 
 ## Node
 To create a custom Node structure, just create a new class that extends a Node class, for instance `class MyNode extends Node` for the base Node structure. You will then have to create a constructor matching the `super` one.   

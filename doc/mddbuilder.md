@@ -6,15 +6,17 @@
 The universal MDD is the MDD that contains every possible solutions for a given domain. That is, `MDDUniversal ∩ MDD = MDD` and `MDDUniversal ∪ MDD = MDDUniversal`.  
 
 **Creation** :  
-`MDDBuilder.universal(MDD mdd, ArrayOfInt V, int size)`  
-> `mdd` is the MDD that will stock the result, `V` is the domain of the MDD and `size` is the size of the MDD.
+`MDDBuilder.universal(MDD mdd, Domains D, int size)`  
+> `mdd` is the MDD that will stock the result, `D` is the domain of the MDD and `size` is the size of the MDD.
 
 **Example** :  
 ```java
-// V = {0,1,2,3,4}
-ArrayOfInt V = ArrayOfInt.crete(5);
-for(int i = 0; i < V.length(); i++) V.set(i,i);
-MDD universal = MDDBuilder.universal(MDD.create(), V, 10);
+// D[i] = {0,1,2,3,4} for each layer
+Domains D = Domains.create(10); // 10 variables
+for(int i = 0; i < D.size(); i++) {
+  for(int v = 0; v < 5; v++) D.set(i, v); // Set the value v in the domain of the ith variable
+}
+MDD universal = MDDBuilder.universal(MDD.create(), D);
 ```
 
 ## Constraints
@@ -31,20 +33,21 @@ Consider each variable's domain to be `D = {0,1,2}`, `V = {1}`, `l = 1` and `u =
 
 **Creation** :  
 `MDDBuilder.among(MDD mdd, int q, int min, int max)`  
-`MDDBuilder.among(MDD mdd, SetOf<Integer> D, SetOf<Integer> V, int q, int min, int max)`  
+`MDDBuilder.among(MDD mdd, Domains D, SetOf<Integer> V, int q, int min, int max)`  
 > `mdd` is the MDD that will stock the result, `q` is the size of the MDD, `min (= l)` is the minimum and `max (= u)` is the maximum number of time a value must be taken.  
 > `D` and `V` are respectively the domains of variables and V the values that are constrained. In particular, `V` is a subset of `D`.
 
 **Example** :  
 ```java
-MDD among = MDDBuilder.among(MDD.create(), 5, 1, 2); // D = {0,1}, V = {1}
+MDD among = MDDBuilder.among(MDD.create(), 5, 1, 2); // D[i] = {0,1} for each i, V = {1}
 
-SetOf<Integer> D = Memory.SetOfInteger();
+Domains D = Domains.create(5);
 SetOf<Integer> V = Memory.SetOfInteger();
+// D[i] = [0, 9] for each i, V = [0, 4]
 for(int i = 0; i < 5; i++) {
-    D.add(i); V.add(i);
+    for(int v = 0; v < 10; v++) D.set(i, v);
+    V.add(i);
 }
-for(int i = 5; i < 10; i++) D.add(i);
 MDD among10 = MDDBuilder.among(MDD.create(), D, V, 5, 1, 2);
 ```
 
@@ -67,21 +70,22 @@ Consider the same example as the among constraint. We consider the sequence cons
 
 **Creation** :  
 `MDDBuilder.sequence(MDD mdd, int q, int min, int max, int size)`  
-`MDDBuilder.sequence(MDD mdd, SetOf<Integer> D, SetOf<Integer> V, int q, int min, int max, int size)`  
+`MDDBuilder.sequence(MDD mdd, Domains D, SetOf<Integer> V, int q, int min, int max, int size)`  
 > `mdd` is the MDD that will stock the result, `q` is the size of the **among** constraint, `min (= l)` is the minimum and `max (= u)` is the maximum number of time a value must be taken, and `size` is the size of the MDD.
 > `D` and `V` are respectively the domains of variables and V the values that are constrained. In particular, `V` is a subset of `D`.
 
 **Example** :  
 ```java
-MDD sequence = MDDBuilder.sequence(MDD.create(), 5, 1, 2, 6); // D = {0,1}, V = {1}
+MDD sequence = MDDBuilder.sequence(MDD.create(), 5, 1, 2, 6); // D[i] = {0,1} for each i, V = {1}
 
-SetOf<Integer> D = Memory.SetOfInteger();
+Domains D = Domains.create(6);
 SetOf<Integer> V = Memory.SetOfInteger();
+// D[i] = [0, 9] for each i, V = [0, 4]
 for(int i = 0; i < 5; i++) {
-    D.add(i); V.add(i);
+    for(int v = 0; v < 10; v++) D.set(i, v);
+    V.add(i);
 }
-for(int i = 5; i < 10; i++) D.add(i);
-MDD among10 = MDDBuilder.among(MDD.create(), D, V, 5, 1, 2, 6);
+MDD sequence6 = MDDBuilder.sequence(MDD.create(), D, V, 5, 1, 2, 6);
 ```
 
 > **Note** :  
@@ -96,12 +100,14 @@ Given `X` a set of variables, `l` and `u` two integers with `l <= u` and `V` a s
 The **sum** constraint ensures that the sum of values taken by the variables of `X` is at least `l` and at most `u`.  
 
 **Creation** :  
-`MDDBuilder.sum(MDD mdd, int s_min, int s_max, int size, SetOf<Integer> V)`  
+`MDDBuilder.sum(MDD mdd, int s_min, int s_max, int size, Domains D)`  
 > `mdd` is the MDD that will stock the result, `s_min (= l)` is the minimum and `s_max (= u)` is the maximum value of the sum, `size` is the size of the MDD and `V` is the set of values.  
 
 You can also call the variants :  
-- `MDDBuilder.sum(MDD mdd, int s, int size, SetOf<Integer> V)` where s_min = s_max = s
-- `MDDBuilder.sum(MDD mdd, int s, int size)` where s_min = s_max = s and `V = {0,1}`
+- `MDDBuilder.sum(MDD mdd, int s_min, int s_max, int size, SetOf<Integer> V)` where `D[i] = V` for each i
+- `MDDBuilder.sum(MDD mdd, int s, int size, Domains D)` where s_min = s_max = s
+- `MDDBuilder.sum(MDD mdd, int s, int size, SetOf<Integer> V)` where s_min = s_max = s and `D[i] = V` for each i
+- `MDDBuilder.sum(MDD mdd, int s, int size)` where s_min = s_max = s and `D[i] = {0,1}` for each i
 
 **Example** :  
 ```java
@@ -125,20 +131,22 @@ Consider `V = {0,1,2,3}` and the associations `0 -> [1, 3]` and `1 -> [0, 2]`.
 ```
 
 **Creation** :  
-`MDDBuilder.gcc(MDD mdd, int size, MapOf<Integer, TupleOfInt> couples, SetOf<Integer> D)`  
+`MDDBuilder.gcc(MDD mdd, int size, MapOf<Integer, TupleOfInt> couples, Domains D)`  
 > `mdd` is the MDD that will stock the result, `size` is the size of the MDD, `couples` is the map of associations and `D` is the domain.
 
 **Example** :  
 ```java
-// V = {0,1,2,3}
-SetOf<Integer> V = Memory.SetOfInteger();
-for(int i = 0; i < 4; i++) V.add(i);
+Domains D = Domains.create(5);
+for(int i = 0; i < 5; i++) {
+  // D[i] = {0,1,2,3}
+  for(int v = 0; v < 4; v++) D.set(i, v);
+}
 
 MapOf<Integer, TupleOfInt> couples = Memory.MapOfIntegerTupleOfInt();
 couples.put(0, TupleOfInt.create(1,3)); // 0 -> [1, 3]
 couples.put(1, TupleOfInt.create(0,2)); // 1 -> [0, 2]
 
-MDD gcc = MDDBuilder.gcc(MDD.create(), 5, couples, V);
+MDD gcc = MDDBuilder.gcc(MDD.create(), 5, couples, D);
 ```
 
 ***
@@ -150,7 +158,7 @@ The **alldiff** constraint ensures that all values taken in `V` by the variables
 **Remark** : The **alldiff** constraint is a GCC where each value `v ∈ V` is binded to `v -> [1, 1]`.  
 
 **Creation** :  
-`MDDBuilder.alldiff(MDD mdd, SetOf<Integer> D, SetOf<Integer> V, int size)`  
+`MDDBuilder.alldiff(MDD mdd, Domains D, SetOf<Integer> V, int size)`  
 or `MDDBuilder.alldiff(MDD mdd, SetOf<Integer> V, int size)`  
 > `mdd` is the MDD that will stock the result, `V` is the set of values that are constrained, `D` is the domain, and `size` is the size of the MDD.
 

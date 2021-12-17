@@ -10,61 +10,64 @@ This allows us to create an MDD on-the-fly by only defining these three function
 
 ## Among & Sequence
 
-### Parameters
+#### Parameters
 ```java
-Memory.ParametersAmong(int q, int min, int max, SetOf<Integer> V)
+ParametersAmong.create(int q, int min, int max, SetOf<Integer> V);
 ```
-?> **See also** : [Among Constraint](https://github.com/JungVictor/MDDLib/wiki/MDDBuilder#among)
 
-### State
+#### State
 ```java
-Memory.StateAmong(ParametersAmong constraint)
+StateAmong.create(ParametersAmong constraint);
 ```
 This will create an object that represent a state of an Among constraint, and will propagate according to the given parameters.
 
 !> When creating states by propagation, the same Parameters object is passed as reference. Therefore, you do not want to free this reference when freeing the State. You should keep a reference to the Parameters and free it once the propagation is over.
 
+?> **See also** : [Among Constraint](mddbuilder?id=among), [Sequence Constraint](mddbuilder?id=sequence)
+
 ## Sum
 
-### Parameters
+#### Parameters
 ```java
-Memory.ParametersSum(int min, int max, int vMin, int vMax)
+ParametersSum.create(int min, int max, int vMin, int vMax)
 ```
 `vMin` and `vMax` are respectively the minimum and maximum value that a variable can take.  
 **This will likely change in the future in order to take into account the different domains of the variables.**  
 
-?> **See also** : [Sum Constraint](https://github.com/JungVictor/MDDLib/wiki/MDDBuilder#sum)
-
-### State
+#### State
 ```java
-Memory.StateSum(ParametersSum constraint)
+StateSum.create(ParametersSum constraint)
 ```
 This will create an object that represent a state of a Sum constraint, and will propagate according to the given parameters.
 
+?> **See also** : [Sum Constraint](mddbuilder?id=sum)
+
 ## GCC
 
-### Parameters
+#### Parameters
 ```java
-Memory.ParametersGCC(MapOf<Integer, TupleOfInt> gcc)
+ParametersGCC.create(MapOf<Integer, TupleOfInt> gcc)
 ```
-?> **See also** : [GCC Constraint](https://github.com/JungVictor/MDDLib/wiki/MDDBuilder#gcc)
 
-### State
+#### State
 ```java
-Memory.StateGCC(ParametersGCC constraint)
+StateGCC.create(ParametersGCC constraint)
 ```
 This will create an object that represent a state of a GCC constraint, and will propagate according to the given parameters.
 
+?> **See also** : [GCC Constraint](mddbuilder?id=gcc)
+
 ## AllDifferent
 
-### Parameters
+#### Parameters
 ```java
-Memory.ParametersAllDiff(SetOf<Integer> V)
+ParametersAllDiff.create(SetOf<Integer> V)
 ```
-?> **See also** : [AllDiff Constraint](https://github.com/JungVictor/MDDLib/wiki/MDDBuilder#alldiff)
 
-### State
+#### State
 ```java
-Memory.StateAllDiff(ParametersSum constraint)
+StateAllDiff.create(ParametersSum constraint)
 ```
 This will create an object that represent a state of an AllDifferent constraint, and will propagate according to the given parameters.
+
+?> **See also** : [AllDiff Constraint](mddbuilder?id=alldiff)
