@@ -22,7 +22,7 @@ public MDD MDD(){
     return MyMDD.create();
 }
 ```
-Notice that you'll have to implement an allocator in order to do things nicely, so I recommend checking out this wiki section : [Create your own allocator](https://github.com/JungVictor/MDDLib/wiki/Memory-Management#allocatorof).  
+Notice that you'll have to implement an allocator in order to do things nicely, so I recommend checking out this wiki section : [Create your own allocator](allocatorof).  
 
 If you add properties, do not forget to also `@Override` the `free()` and method from the `Allocable` interface to allow memory consumption management. You'll have to call the `super` methods first, then perform your own manipulation.
 ```java
@@ -118,6 +118,20 @@ public class MyMDD extends MDD {
 
         super.free();
     }
+
+    static final class Allocator extends AllocatorOf<MyMDD> {
+
+        // You can specify the initial capacity. Default : 10.
+        Allocator(int capacity) { super.init(capacity); }
+
+        Allocator(){ super.init(); }
+
+        @Override
+        protected MyMDD[] arrayCreation(int capacity) { return new MyMDD[capacity]; }
+
+        @Override
+        protected MyMDD createObject(int index) { return new MyMDD(index); }
+    }
 }
 ```
 
@@ -136,7 +150,7 @@ public Node Node(){
     return MyNode.create();
 }
 ```
-Notice that you'll have to implement an allocator in order to do things nicely, so I recommend checking out this wiki section : [Create your own allocator](https://github.com/JungVictor/MDDLib/wiki/Memory-Management#allocatorof).  
+Notice that you'll have to implement an allocator in order to do things nicely, so I recommend checking out this wiki section : [Create your own allocator](allocatorof).  
 
 If you add properties, do not forget to also `@Override` the `free()` method from the `MemoryObject` interface to allow memory consumption management. You'll have to call the `super` methods first, then perform your own manipulation.
 ```java

@@ -15,8 +15,8 @@ MemoryPool<E> pool = new MemoryPool<>(); // MemoryPool with an initial capacity 
 MemoryPool<E> pool = new MemoryPool<>(int capacity); // MemoryPool with the specified initial capacity
 ```
 
-> **IMPORTANT NOTE** :  
-> `MemoryPool` can only manage objects implementing the `MemoryObject` interface !!
+!> **IMPORTANT NOTE** :  
+`MemoryPool` can only manage objects implementing the `MemoryObject` interface !!
 
 ## MemoryObject
 `MemoryObject` is an interface that must be implemented if you want your object to be able to be reused. It simply consists of three methods :  

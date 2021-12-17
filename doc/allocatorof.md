@@ -32,8 +32,8 @@ static final class Allocator extends AllocatorOf<E> {
 }
 ```
 
-> **IMPORTANT NOTE** :  
-> `AllocatorOf` can only manage objects implementing the `Allocable` interface !!
+!> **IMPORTANT NOTE** :  
+`AllocatorOf` can only manage objects implementing the `Allocable` interface !!
 
 > [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/memory/AllocatorOf.java)  
 
@@ -98,4 +98,4 @@ Finally, the fact that everything related to the creation of an object is locate
 The drawback is that you can't create an allocator for a class with generic type (for instance, the MapOf<K, V>) without creating a subclass that is explicitly of type <K, V>.
 
 The _Legacy_ design is still used for class using generic types, such as SetOf<E> and MapOf<K, V>.  
-See : [Memory Management (Legacy)](memory-pool)
+See : [Memory Management (Legacy)](memorypool)
