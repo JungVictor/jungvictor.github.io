@@ -2,7 +2,7 @@
 
 This section will detail how to implement a constraint.  
 
-?> [States & Parameters](states-and-parameters)
+?> You should read [States & Parameters](states-and-parameters) before reading this section.
 
 ## Parameters
 

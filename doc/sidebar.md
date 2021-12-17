@@ -6,13 +6,17 @@
 - [Operations between MDDs](operation-between-mdds)
 - [Operations on the MDD](operation-on-the-mdd)
 - [On the fly operations](on-the-fly-operations)
+- **Representation**
+- [Printer](mdd-printer)
+- [MDD2Dot](mdd2dot)
 - **Builder**
 - [MDDBuilder](mddbuilder)
 - [Parameters & States](parameters-and-states)
-- **Custom**
+- **Customisation**
 - [Implementing an MDD](implementing-an-mdd)
 - [Implementing a constraint](implementing-a-constraint)
 - **Memory Management**
+- [Save & Load](save-and-load)
 - [AllocatorOf](allocatorof)
 - [MemoryPool](memorypool)
 - **Links**
