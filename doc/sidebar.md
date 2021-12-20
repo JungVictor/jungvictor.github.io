@@ -21,5 +21,5 @@
 - [MemoryPool](memorypool)
 - **Links**
 - [Github](https://github.com/jungvictor/MDDLib)
-- [Javadoc](https://github.com/jungvictor/javadoc)
+- [Javadoc](https://jungvictor.github.io/javadoc/)
 - [MDDViewer](https://jungvictor.github.io/MDDViewer/)
