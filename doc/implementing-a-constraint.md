@@ -11,7 +11,7 @@ This section will detail how to implement a constraint.
 The parameters contain all information about the constraint. The parameters will be shared by all states.  
 For instance, the parameters of a [Sum Constraint](mddbuilder?id=sum) are the lower bound and upper bound of the sum.  
 
-> It is recommended that you implement the `Allocable` interface, but it is not necessary as we may build few objects of type Parameters.
+> It is recommended that you extends the `ConstraintParameters` abstract class, but it is not necessary. The `ConstraintParameters` implements the `Allocable` interface, so it means that you will have to implement an allocator for your parameters.
 
 
 ## State
