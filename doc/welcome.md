@@ -7,7 +7,7 @@ MDDLib is designed to be able to run without a garbage collector : `-XX:+UnlockE
 This library is a work in progress. As such, we do not guarantee any forward compatibility.  
 
 ## Documentation, Support and Issues
-The source code is available at https://github.com/JungVictor/MDDLib.
+The source code is available at https://github.com/JungVictor/MDDLib.  
 The Javadoc is available at https://jungvictor.github.io/javadoc/.
 
 ## Tools

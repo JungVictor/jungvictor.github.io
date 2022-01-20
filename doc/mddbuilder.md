@@ -19,7 +19,59 @@ for(int i = 0; i < D.size(); i++) {
 MDD universal = MDDBuilder.universal(MDD.create(), D);
 ```
 
-## Constraints
+## Arithmetic Constraints
+**Definition** :  
+Given a set of variables `X`, an arithmetic constraint is a mathematical formula linking variables in `X` together.  
+It can be a simple formula (`x + y = 5`), or it can be more complex (`(|x - y| * z)^(a + 1) <= |x - b| + a`).  
+
+### ArithmeticModel
+
+**Priorities** :
+1. Parenthesis and absolute
+2. Power
+3. Multiplication and division
+4. Addition and substraction
+5. Left to right
+
+**Syntax** :  
+- Variables : `{x}` with x the index of the variable.
+- Operator :  
+  - Plus : `+`
+  - Minus : `-`
+  - Multiply : `*`
+  - Divide : `/`
+  - Power : `^`
+- Special :
+  - Absolute : `| ... |`
+  - Parenthesis : `( ... )`
+
+**Example** :
+```java
+// Number of variables
+int N = 3;
+
+// Domains = {0,1,2,3}
+Domains D = Domains.create(N);
+for(int i = 0; i < N; i++) {
+    for(int v = 0; v <= 3; v++) D.put(i, v);
+}
+
+ArithmeticModel model = new ArithmeticModel();
+model.addExpression("|{0} - {1}| <= 1");  // |x0 - x1| <= 1
+model.addExpression("{0} != {2}");        // x0 != x2
+model.addExpression("|{1} - {2}| > 1");   // |x1 - x2| > 1
+
+
+MDD result = MDD.create();
+model.build(result, D, N);
+result.reduce();
+```
+
+?> Adding an expression to the model `model.addExpression` performs a logical AND. If you want an OR, you must build different models, build them then perform the union of the DDs.  
+This is done this way because the union is a simple operation for Decision Diagrams, as it does not decompress the structure.
+
+
+## Global Constraints
 ### Among
 **Definition** :  
 Given `X` a set of variables, `l` and `u` two integers with `l <= u` and `V` a set of values.  
