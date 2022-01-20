@@ -2,7 +2,7 @@
 MDDLib is distributed under MIT License. Copyright (c) 2021, Victor JUNG, Jean-Charles RÉGIN & Steve MALALEL.
 
 ## What is MDDLib
-MDDLib is a library to create and manipulate Multi-valud Decision Diagrams, written in **Java 11**.  
+MDDLib is a library to create and manipulate Multi-valued Decision Diagrams, written in **Java 11**.  
 MDDLib is designed to be able to run without a garbage collector : `-XX:+UnlockExperimentalVMOptions -XX:+UseEpsilonGC` in JVM Options.  
 This library is a work in progress. As such, we do not guarantee any forward compatibility.  
 
