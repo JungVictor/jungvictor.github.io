@@ -13,9 +13,7 @@ The universal MDD is the MDD that contains every possible solutions for a given 
 ```java
 // D[i] = {0,1,2,3,4} for each layer
 Domains D = Domains.create(10); // 10 variables
-for(int i = 0; i < D.size(); i++) {
-  for(int v = 0; v < 5; v++) D.set(i, v); // Set the value v in the domain of the ith variable
-}
+for(int i = 0; i < D.size(); i++) D.fill(i, 0, 4);
 MDD universal = MDDBuilder.universal(MDD.create(), D);
 ```
 
@@ -52,9 +50,7 @@ int N = 3;
 
 // Domains = {0,1,2,3}
 Domains D = Domains.create(N);
-for(int i = 0; i < N; i++) {
-    for(int v = 0; v <= 3; v++) D.put(i, v);
-}
+D.fillAll(N, 0, 3); // Fill domains up to N (not included) with values between 0 and 3 (included)
 
 ArithmeticModel model = new ArithmeticModel();
 model.addExpression("|{0} - {1}| <= 1");  // |x0 - x1| <= 1
@@ -97,7 +93,7 @@ Domains D = Domains.create(5);
 SetOf<Integer> V = Memory.SetOfInteger();
 // D[i] = [0, 9] for each i, V = [0, 4]
 for(int i = 0; i < 5; i++) {
-    for(int v = 0; v < 10; v++) D.set(i, v);
+    D.fill(i, 0, 9);
     V.add(i);
 }
 MDD among10 = MDDBuilder.among(MDD.create(), D, V, 5, 1, 2);
@@ -134,7 +130,7 @@ Domains D = Domains.create(6);
 SetOf<Integer> V = Memory.SetOfInteger();
 // D[i] = [0, 9] for each i, V = [0, 4]
 for(int i = 0; i < 5; i++) {
-    for(int v = 0; v < 10; v++) D.set(i, v);
+    D.fill(i, 0, 9);
     V.add(i);
 }
 MDD sequence6 = MDDBuilder.sequence(MDD.create(), D, V, 5, 1, 2, 6);
@@ -191,7 +187,7 @@ Consider `V = {0,1,2,3}` and the associations `0 -> [1, 3]` and `1 -> [0, 2]`.
 Domains D = Domains.create(5);
 for(int i = 0; i < 5; i++) {
   // D[i] = {0,1,2,3}
-  for(int v = 0; v < 4; v++) D.set(i, v);
+  D.fill(i, 0, 3);
 }
 
 MapOf<Integer, TupleOfInt> couples = Memory.MapOfIntegerTupleOfInt();
@@ -209,17 +205,28 @@ Given `X` a set of variables, and `V` a set of values.
 The **alldiff** constraint ensures that all values taken in `V` by the variables of `X` are all different.  
 **Remark** : The **alldiff** constraint is a GCC where each value `v ∈ V` is binded to `v -> [1, 1]`.  
 
-**Creation** :  
-`MDDBuilder.alldiff(MDD mdd, Domains D, SetOf<Integer> V, int size)`  
+**Creation** :    
+`MDDBuilder.alldiff(MDD mdd, Domains D, SetOf<Integer> V, int size, SetOf<Integer> variables)`  
+or `MDDBuilder.alldiff(MDD mdd, Domains D, SetOf<Integer> V, int size)`  
 or `MDDBuilder.alldiff(MDD mdd, SetOf<Integer> V, int size)`  
-> `mdd` is the MDD that will stock the result, `V` is the set of values that are constrained, `D` is the domain, and `size` is the size of the MDD.
+> `mdd` is the MDD that will stock the result, `V` is the set of values that are constrained, `D` is the domain, `size` is the size of the MDD and `variables` are the variables constrained by the AllDifferent.  
 
 **Example** :  
 ```java
 // V = {0,1,2,3}
 SetOf<Integer> V = Memory.SetOfInteger();
 for(int i = 0; i < 4; i++) V.add(i);
-MDD alldiff = MDDBuilder.alldiff(MDD.create(), V, 4);
+MDD simpleAllDifferent = MDDBuilder.allDifferent(MDD.create(), V, 4);
+
+// D[i] = {0,1,2,3} for each variable v[i]
+Domains D = Domains.create(4);
+D.fillAll(4, 0, 3);
+
+SetOf<Integer> variables = Memory.SetOfInteger();
+// All variables except the last one constrained
+for(int i = 0; i < 3; i++) variables.add(i);
+MDD allDifferent = MDDBuilder.allDifferent(MDD.create(), D, V, 4, variables);
+
 ```
 
 > **Note** :  
