@@ -13,6 +13,7 @@ The universal MDD is the MDD that contains every possible solutions for a given 
 ```java
 // D[i] = {0,1,2,3,4} for each layer
 Domains D = Domains.create(10); // 10 variables
+// Equivalent to D.fillAll(D.size(), 0, 5);
 for(int i = 0; i < D.size(); i++) {
   for(int v = 0; v < 5; v++) D.set(i, v); // Set the value v in the domain of the ith variable
 }
@@ -166,8 +167,12 @@ You can also call the variants :
 // V = {0,1,2,3,4,5,6,7}
 SetOf<Integer> V = Memory.SetOfInteger();
 for(int i = 0; i < 8; i++) V.add(i);
+Domains D = Domains.create(10);
 MDD sum = MDDBuilder.sum(MDD.create(), 10, 20, 10, V); // sum of 10 variables between 10 and 20 with V = [0,7]
 MDD binsum = MDDBuilder.sum(MDD.create(), 5, 12); // sum of 12 variables is 5 with V = {0,1}
+
+D.fillAll(D.size(), -4, 10);
+MDD sumdomain = MDDBuilder.sum(MDD.create(), 10, 20, 8, D); // sum of 8 variables between 10 and 20 with V = [-4, 10]
 ```
 
 ***
@@ -189,16 +194,21 @@ Consider `V = {0,1,2,3}` and the associations `0 -> [1, 3]` and `1 -> [0, 2]`.
 **Example** :  
 ```java
 Domains D = Domains.create(5);
-for(int i = 0; i < 5; i++) {
-  // D[i] = {0,1,2,3}
-  for(int v = 0; v < 4; v++) D.set(i, v);
-}
+// D[i] = {0,1,2,3}
+D.fillAll(D.size(), 0, 3);
 
 MapOf<Integer, TupleOfInt> couples = Memory.MapOfIntegerTupleOfInt();
 couples.put(0, TupleOfInt.create(1,3)); // 0 -> [1, 3]
 couples.put(1, TupleOfInt.create(0,2)); // 1 -> [0, 2]
 
 MDD gcc = MDDBuilder.gcc(MDD.create(), 5, couples, D);
+
+// You can also define the GCC over some variables, not all
+// Here, we define the GCC constraint over x0, x1, x2 and x4
+SetOf<Integer> variables = Memory.SetOfInteger();
+variables.add(0); variables.add(1); variables.add(2); variables.add(4);
+
+MDD rGcc = MDDBuilder.gcc(MDD.create(), 5, couples, D, variables);
 ```
 
 ***
@@ -210,8 +220,9 @@ The **alldiff** constraint ensures that all values taken in `V` by the variables
 **Remark** : The **alldiff** constraint is a GCC where each value `v ∈ V` is binded to `v -> [1, 1]`.  
 
 **Creation** :  
-`MDDBuilder.alldiff(MDD mdd, Domains D, SetOf<Integer> V, int size)`  
-or `MDDBuilder.alldiff(MDD mdd, SetOf<Integer> V, int size)`  
+`MDDBuilder.allDifferent(MDD mdd, Domains D, SetOf<Integer> V, int size, SetOf<Integer> variables`  
+or `MDDBuilder.allDifferent(MDD mdd, Domains D, SetOf<Integer> V, int size)`  
+or `MDDBuilder.allDifferent(MDD mdd, SetOf<Integer> V, int size)`  
 > `mdd` is the MDD that will stock the result, `V` is the set of values that are constrained, `D` is the domain, and `size` is the size of the MDD.
 
 **Example** :  
@@ -219,7 +230,16 @@ or `MDDBuilder.alldiff(MDD mdd, SetOf<Integer> V, int size)`
 // V = {0,1,2,3}
 SetOf<Integer> V = Memory.SetOfInteger();
 for(int i = 0; i < 4; i++) V.add(i);
-MDD alldiff = MDDBuilder.alldiff(MDD.create(), V, 4);
+MDD alldiff = MDDBuilder.allDifferent(MDD.create(), V, 4);
+
+// Equivalent code with domains
+Domains D = Domains.create(4);
+D.fillAll(D.size(), 0, 3);
+MDD alldiff = MDDBuilder.allDifferent(MDD.create(), D, V, D.size());
+
+// The allDifferent is now defined over x0, x1 and x3
+variables.add(0); variables.add(1); variables.add(3);
+MDD alldiff = MDDBuilder.allDifferent(MDD.create(), D, V, D.size(), variables);
 ```
 
 > **Note** :  
