@@ -76,7 +76,7 @@
 	border: none;
 }
 
-.app-sub-sidebar a {
+.app-sub-sidebar a, li.file {
 	font-size: 13px;
 }
 
@@ -86,7 +86,7 @@
     border-color: var(--mono-tint2);
 }
 
-.sidebar-nav li > a:hover {
+.sidebar-nav li > a:hover, li.file {
     background-color: var(--base-background-color);
     text-decoration: none;
 }
