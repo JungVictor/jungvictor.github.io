@@ -25,6 +25,13 @@
 	--heading-h5-font-size: var(--font-size-m);
 	--heading-h6-font-size: var(--font-size-s);
 	--heading-color: var(--base-color);
+
+	--sidebar-nav-strong-padding: 0;
+	--sidebar-nav-strong-margin: 2.5em 0 0.3em 0;
+}
+
+.sidebar-nav ul > li > strong {
+	border: none;
 }
 
 .app-sub-sidebar a {
@@ -35,6 +42,10 @@
     background-color: var(--base-background-color);
     border-width: 1px 0 1px 1px;
     border-color: var(--mono-tint2);
+}
+
+.app-sub-sidebar li:hover {
+    background-color: var(--base-background-color);
 }
 
 .docsify-tabs__tab{
