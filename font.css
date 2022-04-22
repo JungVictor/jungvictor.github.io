@@ -104,3 +104,16 @@ strong{
 .docsify-tabs__tab--active{
 	cursor: default;
 }
+
+.toc-nav{
+	font-size: var(--font-size-s);
+}
+
+.page_toc div {
+	border-left-width: 1px;
+}
+
+.page_toc div.active {
+	border-left-width: 2px;
+	color: var(--theme-color);
+}
