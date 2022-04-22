@@ -34,8 +34,8 @@
 }
 
 .pagination-item--next {
-	justify-content: left;
-	text-align: left;
+	justify-content: left!important;
+	text-align: left!important;
 }
 
 .pagination-item a:hover {
