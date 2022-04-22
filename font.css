@@ -91,7 +91,7 @@ strong{
 	font-size: 13px;
 }
 
-li.open {
+li.open > a {
 	border-bottom-width: 1px;
 }
 
