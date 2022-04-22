@@ -15,6 +15,7 @@
 
 	--heading-h1-border-width: 0 0 1px 0;
 	--heading-h1-border-color: var(--heading-h2-border-color);
+	--heading-h1-margin: 0 0 2rem 0;
 	--heading-h2-border-width: 1px 0 0 0;
 	--heading-h2-padding: 1rem 0 0 0;
 	--heading-h1-font-weight: 700;
