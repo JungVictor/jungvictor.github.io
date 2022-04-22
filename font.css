@@ -91,11 +91,6 @@ strong{
 	font-size: 13px;
 }
 
-li.open > a {
-    border-width: 1px 0 1px 1px;
-    border-color: var(--mono-tint2);
-}
-
 li.open > ul > li.file > a {
 	background-image: none!important;
 	white-space: normal!important;
