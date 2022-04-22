@@ -38,11 +38,11 @@
 	text-align: left!important;
 }
 
-.pagination-item-title:hover {
+.pagination-item-title {
 	text-decoration: none!important;
 }
 
-.pagination-item-label:hover {
+.pagination-item-label {
 	color: var(--base-color)!important;
 }
 

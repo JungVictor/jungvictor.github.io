@@ -2,6 +2,9 @@
 - **Introduction**
 - [Basic usage](basic-usage)
 - [Structure & Elements](structure-and-elements)
+	- Layer
+	- Node
+	- Arcs
 - **Operations**
 - [Operations between MDDs](operation-between-mdds)
 - [Operations on the MDD](operation-on-the-mdd)
