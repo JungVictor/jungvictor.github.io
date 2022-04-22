@@ -36,9 +36,8 @@
 }
 
 .markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4{
-	line-height: 1.4rem;
-	padding-top: var(--base-line-height);
-	padding-bottom: var(--base-line-height);
+	line-height: 1.2;
+	padding-bottom: 1.7rem;
 }
 
 strong{
