@@ -10,7 +10,7 @@ function toggleTheme(element){
     element.style.border = "1px solid #e3e3e3"
   } else {
     css.href = "https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css";
-    color.href = "empty.css";
+    color.href = "color-dark.css";
     element.innerHTML = 'Light Theme';
     element.style.backgroundColor = "#242e33"
     element.style.border = "1px solid #34434b"
