@@ -12,6 +12,18 @@
 	--code-font-family: Inconsolata, Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
 	--code-font-size: calc(var(--font-size-m) * 0.95);
 	--code-font-weight: normal;
+
+	--heading-h2-border-width: 1px 0 0 0;
+	--heading-h2-padding: 1rem 0 0 0;
+	--heading-h1-font-weight: 800;
+	--heading-h1-font-weight: 700;
+	--heading-h1-font-size: var(--font-size-xxxl);
+	--heading-h2-font-size: var(--font-size-xxl);
+	--heading-h3-font-size: var(--font-size-xl);
+	--heading-h4-font-size: var(--font-size-l);
+	--heading-h5-font-size: var(--font-size-m);
+	--heading-h6-font-size: var(--font-size-s);
+	--heading-color: var(--base-color);
 }
 
 .app-sub-sidebar a {
@@ -21,4 +33,12 @@
 .app-sub-sidebar li.active > a {
     background-color: var(--base-background-color);
     border-width: 1px 0 1px 1px;
+}
+
+.docsify-tabs__tab{
+	cursor: pointer;
+}
+
+.docsify-tabs__tab--active{
+	cursor: default;
 }
