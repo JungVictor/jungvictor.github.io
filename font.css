@@ -16,7 +16,8 @@
 	--heading-h2-border-width: 1px 0 0 0;
 	--heading-h2-padding: 1rem 0 0 0;
 	--heading-h1-font-weight: 800;
-	--heading-h1-font-weight: 700;
+	--heading-h2-font-weight: 700;
+	--heading-h3-font-weight: 500;
 	--heading-h1-font-size: var(--font-size-xxxl);
 	--heading-h2-font-size: var(--font-size-xxl);
 	--heading-h3-font-size: var(--font-size-xl);
@@ -33,6 +34,7 @@
 .app-sub-sidebar li.active > a {
     background-color: var(--base-background-color);
     border-width: 1px 0 1px 1px;
+    border-color: var(--mono-tint2);
 }
 
 .docsify-tabs__tab{
