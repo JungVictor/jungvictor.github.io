@@ -37,6 +37,8 @@
 
 .markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4{
 	line-height: 1.4rem;
+	padding-top: var(--base-line-height);
+	padding-bottom: var(--base-line-height);
 }
 
 strong{
@@ -91,8 +93,8 @@ strong{
 }
 
 li.open > ul > li.file > a {
-	background-image: none;
-    background-color: var(--base-background-color);
+	background-image: none!important;
+	white-space: normal!important;
 	font-size: 13px;
     border-width: 1px 0 1px 1px;
     border-color: var(--mono-tint2);
