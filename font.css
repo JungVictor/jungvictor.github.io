@@ -113,7 +113,10 @@ strong{
 	border-left-width: 1px!important;
 }
 
-.page_toc div.active a {
+.page_toc div.active {
 	border-left-width: 2px!important;
+}
+
+.page_toc div.active a span{
 	color: var(--theme-color)!important;
 }
