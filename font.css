@@ -35,6 +35,10 @@
 	--link-text-decoration-color: var(--link-color);
 }
 
+.markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4{
+	line-height: 1.4rem;
+}
+
 strong{
 	color: inherit;
 }
@@ -84,6 +88,19 @@ strong{
 
 .app-sub-sidebar a{
 	font-size: 13px;
+}
+
+li.open > ul > li.file > a {
+	background-image: none;
+    background-color: var(--base-background-color);
+	font-size: 13px;
+    border-width: 1px 0 1px 1px;
+    border-color: var(--mono-tint2);
+}
+
+li.open > ul > li.file > a:hover {
+    background-color: var(--base-background-color);
+    text-decoration: none;
 }
 
 .app-sub-sidebar li.active > a {
