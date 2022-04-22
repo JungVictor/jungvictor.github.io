@@ -51,6 +51,7 @@
 	background-color: var(--code-theme-background);
 	border-color: var(--theme-color);
 	color: var(--theme-color);
+	cursor: pointer;
 }
 
 .pagination-item {
@@ -64,6 +65,10 @@
     text-align: right;
     display: flex;
     margin: 8px;
+}
+
+.pagination-item a {
+	width: 100%;
 }
 
 
