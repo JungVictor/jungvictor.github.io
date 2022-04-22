@@ -92,7 +92,7 @@ strong{
 }
 
 li.open > a {
-	border-bottom-width: 1px;
+    border-width: 1px 0 1px 1px;
 }
 
 li.open > ul > li.file > a {
