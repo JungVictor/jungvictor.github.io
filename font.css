@@ -3,7 +3,7 @@
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: local("Inter Bold"), local("Inter-Bold"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Bold.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Bold.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-Bold.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Bold.woff?v=3.19") format("woff");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
 	font-style: italic;
 	font-weight: 700;
 	font-display: swap;
-	src: local("Inter BoldItalic"), local("Inter-BoldItalic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-BoldItalic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-BoldItalic.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-BoldItalic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-BoldItalic.woff?v=3.19") format("woff");
 }
 
 @font-face {
@@ -19,7 +19,7 @@
 	font-style: normal;
 	font-weight: 800;
 	font-display: swap;
-	src: local("Inter ExtraBold"), local("Inter-ExtraBold"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBold.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBold.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBold.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBold.woff?v=3.19") format("woff");
 }
 
 @font-face {
@@ -27,7 +27,7 @@
 	font-style: italic;
 	font-weight: 800;
 	font-display: swap;
-	src: local("Inter ExtraBoldItalic"), local("Inter-ExtraBoldItalic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBoldItalic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBoldItalic.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBoldItalic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-ExtraBoldItalic.woff?v=3.19") format("woff");
 }
 
 @font-face {
@@ -35,7 +35,7 @@
 	font-style: normal;
 	font-weight: 500;
 	font-display: swap;
-	src: local("Inter Medium"), local("Inter-Medium"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Medium.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Medium.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-Medium.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Medium.woff?v=3.19") format("woff");
 }
 
 @font-face {
@@ -43,7 +43,7 @@
 	font-style: italic;
 	font-weight: 500;
 	font-display: swap;
-	src: local("Inter MediumItalic"), local("Inter-MediumItalic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-MediumItalic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-MediumItalic.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-MediumItalic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-MediumItalic.woff?v=3.19") format("woff");
 }
 
 @font-face {
@@ -51,7 +51,7 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: local("Inter Regular"), local("Inter-Regular"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Regular.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Regular.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-Regular.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Regular.woff?v=3.19") format("woff");
 }
 
 @font-face {
@@ -59,7 +59,7 @@
 	font-style: italic;
 	font-weight: 400;
 	font-display: swap;
-	src: local("Inter Italic"), local("Inter-Italic"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Italic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Italic.woff?v=3.19") format("woff");
+	src: url("https://app.gitbook.com/public/fonts/Inter/Inter-Italic.woff2?v=3.19") format("woff2"), url("https://app.gitbook.com/public/fonts/Inter/Inter-Italic.woff?v=3.19") format("woff");
 }
 
 :root {
