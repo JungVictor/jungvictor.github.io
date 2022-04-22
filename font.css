@@ -31,10 +31,11 @@
 
 	--pagination-label-font-size: var(--font-size-xs);
 	--pagination-title-font-size: var(--font-size-m);
+	--link-text-decoration-color: var(--theme-color);
 }
 
-.markdown-section a{
-	color: var(--theme-color);
+strong{
+	color: inherit;
 }
 
 .pagination-item--next {
