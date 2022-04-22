@@ -1,4 +1,4 @@
-# MDD2Dot
+# MDD2Dot <!-- {docsify-ignore-all} -->
 The MDD2Dot class is used to convert an MDD into a .dot file.  
 
 ?> For more information :  
