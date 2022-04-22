@@ -1,26 +1,4 @@
 :root {
 	--sidebar-background: #f5f7f9;
-	--sidebar-border-color: var(--mono-tint2);
-	--sidebar-name-color: var(--theme-color);
-	--sidebar-nav-link-border-color: transparent;
-	--sidebar-nav-link-border-color--active: var(--theme-color);
-	--sidebar-nav-link-color--active: var(--theme-color);
-	--sidebar-nav-strong-border-color: var(--sidebar-border-color);
-	--sidebar-nav-strong-color: var(--heading-color);
-	--sidebar-nav-link-color: var(--base-color);
-	--sidebar-toggle-background: var(--sidebar-border-color);
-	--sidebar-toggle-icon-color: var(--base-color);
-
-
-	--search-input-border-color: var(--sidebar-border-color);
-	--search-result-heading-color: var(--heading-color);
-	--search-result-item-border-color: var(--mono-tint2);
-	--search-result-keyword-background: var(--mark-background);
-	--search-result-keyword-color: var(--mark-color);
-
-	--search-input-background-color: #fff;
-	--search-result-item-border-color: var(--sidebar-border-color);
-
-	--search-input-placeholder-color: rgba(0, 0, 0, 0.4);
-	--search-clear-icon-color1:rgba(0, 0, 0, 0.3);
+	--color-theme: #fd86e8;
 }
