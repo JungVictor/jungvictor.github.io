@@ -106,14 +106,14 @@ strong{
 }
 
 .toc-nav{
-	font-size: var(--font-size-s);
+	font-size: 0.85rem;
 }
 
 .page_toc div {
-	border-left-width: 1px;
+	border-left-width: 1px!important;
 }
 
-.page_toc div.active {
-	border-left-width: 2px;
-	color: var(--theme-color);
+.page_toc div.active a {
+	border-left-width: 2px!important;
+	color: var(--theme-color)!important;
 }
