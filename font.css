@@ -33,6 +33,10 @@
 	--pagination-title-font-size: var(--font-size-m);
 }
 
+.markdown-section a{
+	color: var(--theme-color);
+}
+
 .pagination-item--next {
 	justify-content: left!important;
 	text-align: left!important;
