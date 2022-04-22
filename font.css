@@ -95,19 +95,19 @@ li.open > ul > li.file > a {
 	background-image: none!important;
 	white-space: normal!important;
 	font-size: 13px;
-    border-left-width: 1px;
+    border-width: 0 0 0 1px;
     border-color: var(--mono-tint2);
 }
 
 li.open > ul > li.file.active > a {
     background-color: var(--base-background-color);
-    border-width: 0px 0 0px 1px;
+    border-width: 0 0 0 1px;
 }
 
 li.open > ul > li.file > a:hover {
     background-color: var(--base-background-color);
     text-decoration: none;
-    border-width: 0px 0 0px 1px;
+    border-width: 0 0 0 1px;
 }
 
 .app-sub-sidebar li.active > a {
