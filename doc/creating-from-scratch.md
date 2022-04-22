@@ -6,9 +6,8 @@ To make your first MDD, first go inside the Main file located in the :open\_file
 
 In order to build a MDD, you have different options : either build it by manually adding nodes and arcs to the MDD, or use the :factory:MDDBuilder factory. In this section, I will show how to add nodes and arcs manually in order to build a universal MDD.
 
-{% hint style="info" %}
-The :factory:MDDBuilder provides a variety of methods to build a MDD from a constraint definition. To know more about it, check the MDDBuilder page !
-{% endhint %}
+?> The :factory:MDDBuilder provides a variety of methods to build a MDD from a constraint definition. To know more about it, check the MDDBuilder page !
+
 
 ### Create a universal MDD of size 10
 
