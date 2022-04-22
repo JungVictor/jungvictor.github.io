@@ -86,7 +86,7 @@
     border-color: var(--mono-tint2);
 }
 
-.sidebar-nav li > a:hover, li.file {
+.sidebar-nav li > a:hover, li.file > a:hover {
     background-color: var(--base-background-color);
     text-decoration: none;
 }
