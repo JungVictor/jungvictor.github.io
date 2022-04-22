@@ -49,7 +49,7 @@
 
 .pagination-item:hover{
 	background-color: var(--code-theme-background);
-	border-color: var(--code-theme-background);
+	border-color: var(--theme-color);
 	color: var(--theme-color);
 }
 
