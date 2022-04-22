@@ -31,7 +31,8 @@
 
 	--pagination-label-font-size: var(--font-size-xs);
 	--pagination-title-font-size: var(--font-size-m);
-	--link-text-decoration-color: var(--theme-color);
+	--link-color: var(--theme-color);
+	--link-text-decoration-color: var(--link-color);
 }
 
 strong{
