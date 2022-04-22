@@ -91,17 +91,27 @@ strong{
 	font-size: 13px;
 }
 
+li.open {
+	border-bottom-width: 1px;
+}
+
 li.open > ul > li.file > a {
 	background-image: none!important;
 	white-space: normal!important;
 	font-size: 13px;
-    border-width: 1px 0 1px 1px;
     border-color: var(--mono-tint2);
+    border-left-width: 1px;
+}
+
+li.open > ul > li.file.active > a {
+    background-color: var(--base-background-color);
+    border-width: 1px 0 1px 1px;
 }
 
 li.open > ul > li.file > a:hover {
     background-color: var(--base-background-color);
     text-decoration: none;
+    border-width: 1px 0 1px 1px;
 }
 
 .app-sub-sidebar li.active > a {
