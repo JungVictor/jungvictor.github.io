@@ -1,4 +1,4 @@
-# Basic usage
+# Basic usage <!-- {docsify-ignore-all} -->
 This page will cover everything you have to know to get started with the creation of an MDD.
 
 ## Creating an MDD
