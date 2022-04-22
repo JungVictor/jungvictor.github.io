@@ -2,7 +2,6 @@
 - **Introduction**
 - [Basic usage](basic-usage)
 - [Structure & Elements](structure-and-elements)
-	- [Layer](mdd-printer)
 - **Operations**
 - [Operations between MDDs](operation-between-mdds)
 - [Operations on the MDD](operation-on-the-mdd)
