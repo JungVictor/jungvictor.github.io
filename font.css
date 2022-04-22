@@ -13,3 +13,12 @@
 	--code-font-size: calc(var(--font-size-m) * 0.95);
 	--code-font-weight: normal;
 }
+
+.app-sub-sidebar a {
+	font-size: 13px;
+}
+
+.app-sub-sidebar li.active > a {
+    background-color: var(--base-background-color);
+    border-width: 1px 0 1px 1px;
+}
