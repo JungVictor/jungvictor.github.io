@@ -95,7 +95,6 @@ li.open > ul > li.file > a {
 	background-image: none!important;
 	white-space: normal!important;
 	font-size: 13px;
-    border-color: var(--mono-tint2);
     border-left-width: 1px;
 }
 
