@@ -38,12 +38,18 @@
 	text-align: left!important;
 }
 
-.pagination-item a:hover {
-	text-decoration: none;
+.pagination-item-title:hover {
+	text-decoration: none!important;
+}
+
+.pagination-item-label:hover {
+	color: var(--base-color)!important;
 }
 
 .pagination-item:hover{
 	background-color: var(--code-theme-background);
+	border-color: var(--code-theme-background);
+	color: var(--theme-color);
 }
 
 .pagination-item {
