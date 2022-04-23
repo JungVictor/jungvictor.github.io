@@ -159,7 +159,7 @@ li.open > ul > li.file > a:hover {
 }
 
 .sidebar-nav li > a:hover {
-	padding-left: 10px;
+	padding-left: 10px!important;
 }
 
 .sidebar-nav li.open li.active>a, .sidebar-nav li.open li.collapse>a {
