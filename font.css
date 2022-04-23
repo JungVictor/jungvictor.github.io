@@ -13,7 +13,7 @@
 	--code-font-size: calc(var(--font-size-m) * 0.95);
 	--code-font-weight: normal;
 
-	--heading-h1-border-width: 0 0 1px 0;
+	--heading-h1-border-width: 0 0 0 0;
 	--heading-h1-border-color: var(--heading-h2-border-color);
 	--heading-h1-margin: 0 0 2rem 0;
 	--heading-h2-border-width: 1px 0 0 0;
@@ -165,7 +165,7 @@ li.open > ul > li.file > a:hover {
 }
 
 .sidebar-nav li.active > a, .sidebar-nav li.open > a {
-	border-right-width: 4px;
+	border-right: 4px solid var(--theme-color);
 	color: var(--theme-color);
 	border-bottom: 1px solid var(--mono-tint2);
 }
