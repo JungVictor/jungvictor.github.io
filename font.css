@@ -32,7 +32,8 @@
 	--heading-color: var(--base-color);
 
 	--sidebar-nav-strong-padding: 0;
-	--sidebar-nav-strong-margin: 2.5em 0 0.3em 0;
+	--sidebar-nav-strong-margin: 2.5em 0 0.3em -20px;
+	--sidebar-nav-pagelink-padding: 0.25em 0 0.25em 0;
 
 	--pagination-label-font-size: var(--font-size-xs);
 	--pagination-title-font-size: var(--font-size-m);
@@ -93,21 +94,44 @@ strong{
 	width: 100%;
 }
 
+.sidebar-nav ul:not(.app-sub-sidebar)>li.collapse::before{
+	border-color: var(--theme-color);
+}
+
+
+.sidebar-nav li{
+	margin-left: 10px;
+}
 
 .sidebar-nav ul > li > strong {
 	border: none;
+	margin-left: -10px;
+}
+
+.sidebar-nav li.open:not(.collapse) > ul {
+	border-left: 1px solid var(--mono-tint2);
 }
 
 .app-sub-sidebar a{
 	font-size: 13px;
 }
 
+.sidebar-nav li.collapse>a[href^="/"]:not([href*="?id="]):not(:only-child), .sidebar-nav li.collapse>a[href^="#/"]:not([href*="?id="]):not(:only-child){
+	background-image: none;
+}
+.sidebar-nav li.active>a[href^="/"]:not([href*="?id="]):not(:only-child), .sidebar-nav li.active>a[href^="#/"]:not([href*="?id="]):not(:only-child){
+	background-image: none;
+}
+.sidebar-nav li>a[href^="/"]:not([href*="?id="]):only-child, .sidebar-nav li>a[href^="#/"]:not([href*="?id="]):only-child{
+	background-image: none;
+}
+
 li.open > ul > li.file > a {
 	background-image: none!important;
 	white-space: normal!important;
 	font-size: 13px;
-    border-width: 0 0 0 1px;
-    border-color: var(--mono-tint2);
+	margin-left: -10px;
+	padding-left: 10px!important;
 }
 
 li.open > ul > li.file.active > a {
@@ -130,6 +154,10 @@ li.open > ul > li.file > a:hover {
 .sidebar-nav li > a:hover {
     background-color: var(--base-background-color);
     text-decoration: none;
+}
+
+.sidebar-nav li.active > a {
+	border-bottom: 1px solid var(--mono-tint2);
 }
 
 .docsify-tabs__tab{
