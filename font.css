@@ -164,7 +164,9 @@ li.open > ul > li.file > a:hover {
 	color: inherit;
 }
 
-.sidebar-nav li.active > a {
+.sidebar-nav li.active > a, .sidebar-nav li.open > a {
+	border-right-width: 4px;
+	color: var(--theme-color);
 	border-bottom: 1px solid var(--mono-tint2);
 }
 
