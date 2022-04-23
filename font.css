@@ -168,6 +168,10 @@ li.open > ul > li.file > a:hover {
 	border-bottom: 1px solid var(--mono-tint2);
 }
 
+.sidebar-nav li.active > a:only-child, .sidebar-nav li.open > a:only-child{
+	border-bottom: none;
+}
+
 .docsify-tabs__tab{
 	cursor: pointer;
 }
