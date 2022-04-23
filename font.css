@@ -33,7 +33,7 @@
 
 	--sidebar-nav-strong-padding: 0;
 	--sidebar-nav-strong-margin: 2.5em 0 0.3em -20px;
-	--sidebar-nav-pagelink-padding: 0.25em 0 0.25em 0;
+	--sidebar-nav-pagelink-padding: 0.25em 0 0.25em 10px;
 
 	--pagination-label-font-size: var(--font-size-xs);
 	--pagination-title-font-size: var(--font-size-m);
@@ -133,7 +133,6 @@ li.open > ul > li.file > a {
 	white-space: normal!important;
 	font-size: 13px;
 	margin-left: -10px;
-	padding-left: 10px!important;
 }
 
 li.open > ul > li.file.active > a {
@@ -156,10 +155,6 @@ li.open > ul > li.file > a:hover {
 .sidebar-nav li > a:hover {
     background-color: var(--base-background-color);
     text-decoration: none;
-}
-
-.sidebar-nav li > a:hover {
-	padding-left: 10px!important;
 }
 
 .sidebar-nav li.open li.active>a, .sidebar-nav li.open li.collapse>a {
