@@ -1,4 +1,4 @@
-# Operations between MDDs
+# Operations between MDDs <!-- {docsify-ignore-all} -->
 
 ## Basic operations
 Basic operations are operations that can be computed following a general scheme. Let a be an arc of the MDD A and b be the corresponding arc in the MDD B : the following array gives whether (T) or not (F) the arc resulting from operation between a and b must be created in the new MDD.

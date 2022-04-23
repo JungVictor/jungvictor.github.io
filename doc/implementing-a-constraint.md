@@ -1,4 +1,4 @@
-# Implementing a constraint
+# Implementing a constraint <!-- {docsify-ignore-all} -->
 
 This section will detail how to implement a constraint.  
 

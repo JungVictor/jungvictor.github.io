@@ -1,4 +1,4 @@
-# Parameters & States
+# Parameters & States <!-- {docsify-ignore-all} -->
 
 States are used to represent a constraint current state at a given node. This structure is composed of mainly three functions :  
 * The transition (creation) function `createState` : Given a state and a label, it outputs the next state obtained when taking the arc with the given label.   

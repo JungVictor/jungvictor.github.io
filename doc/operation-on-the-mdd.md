@@ -1,4 +1,4 @@
-# Operation on the MDD
+# Operation on the MDD <!-- {docsify-ignore-all} -->
 
 ## Reduction
 The reduction operation is one of the most important in a MDD. It merges with a bottom-up approach all equivalent nodes, meaning nodes having the same children. The reduction operation offers a potentially exponential gain in terms of space. All deleted nodes are automatically freed from the memory.  

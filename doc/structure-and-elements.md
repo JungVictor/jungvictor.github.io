@@ -1,4 +1,4 @@
-# Structure & Elements
+# Structure & Elements <!-- {docsify-ignore-all} -->
 This page will details the structure of the MDD, the specificities and functionalities of each elements of the MDD.
 
 ## Layers

@@ -1,4 +1,4 @@
-# Memory Management : MemoryPool
+# Memory Management : MemoryPool <!-- {docsify-ignore-all} -->
 
 ## MemoryPool
 The `MemoryPool` is the structure that contains all objects in the pool of memory. It is implemented using an array to stock the objects, and a stack to stock the indices of free objects, i.e their position in the array.  

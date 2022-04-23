@@ -1,4 +1,4 @@
-# Creating my first MDD from scratch
+# Creating my first MDD from scratch <!-- {docsify-ignore-all} -->
 
 To make your first MDD, first go inside the Main file located in the :open\_file\_folder:dev module.
 

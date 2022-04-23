@@ -1,4 +1,4 @@
-# Printer
+# Printer <!-- {docsify-ignore-all} -->
 
 The MDDPrinter will print the MDD in the console.  
 The MDD will be print layer by layer, node by node.  

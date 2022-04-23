@@ -1,4 +1,4 @@
-# Memory Management : AllocatorOf
+# Memory Management : AllocatorOf <!-- {docsify-ignore-all} -->
 
 ## AllocatorOf
 The `AllocatorOf` is the structure that contains all objects in the pool of memory. It is implemented using an array to stock the objects, and a stack to stock the indices of free objects, i.e their position in the array.  

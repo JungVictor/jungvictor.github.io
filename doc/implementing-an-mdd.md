@@ -1,4 +1,4 @@
-# Implementing an MDD
+# Implementing an MDD <!-- {docsify-ignore-all} -->
 This library allows you to create your own MDD with custom operations or properties without having to rewrite all the core functions of MDDs.  
 When creating your own structures, it is recommended to use the default Memory Management pattern, so don't hesitate to pay a visit to this page : [Memory Management](allocatorof).
 

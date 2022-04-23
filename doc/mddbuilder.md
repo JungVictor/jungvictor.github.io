@@ -1,4 +1,4 @@
-# MDDBuilder
+# MDDBuilder <!-- {docsify-ignore-all} -->
 
 ## Common MDD
 ### Universal

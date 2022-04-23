@@ -1,4 +1,4 @@
-# MDDLib
+# MDDLib <!-- {docsify-ignore-all} -->
 MDDLib is distributed under MIT License. Copyright (c) 2021, Victor JUNG, Jean-Charles RÉGIN & Steve MALALEL.
 
 ## What is MDDLib
