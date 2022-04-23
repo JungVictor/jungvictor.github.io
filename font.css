@@ -145,7 +145,6 @@ li.open > ul > li.file.active > a {
 li.open > ul > li.file > a:hover {
     background-color: var(--base-background-color);
     text-decoration: none;
-    border-width: 0 0 0 0;
 }
 
 .app-sub-sidebar li.active > a {
@@ -160,10 +159,11 @@ li.open > ul > li.file > a:hover {
     text-decoration: none;
 }
 
-.sidebar-nav li.active>a, .sidebar-nav li.collapse>a {
+.sidebar-nav li.open li.active>a, .sidebar-nav li.open li.collapse>a {
 	border: none;
 	color: inherit;
 }
+
 .sidebar-nav li.active > a {
 	border-bottom: 1px solid var(--mono-tint2);
 }
