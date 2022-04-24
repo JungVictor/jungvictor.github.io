@@ -1,8 +1,6 @@
 <!-- markdownlint-disable-next-line first-line-heading -->
 - **Introduction**
 - [Basic usage](basic-usage)
-	- [Creating my first MDD from scratch](creating-from-scratch)
-		- [Test](mddbuilder)
 - [Structure & Elements](structure-and-elements)
 - **Operations**
 - [Operations between MDDs](operation-between-mdds)
