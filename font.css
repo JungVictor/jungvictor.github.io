@@ -72,12 +72,13 @@ strong{
     padding: 12px;
     margin: 8px;
 
+    border-width: 1px!important;
 	border: 1px solid var(--mono-tint2);
     border-radius: 4px;
     box-shadow: 0px 1px 2px var(--mono-tint2);
     background-color: var(--base-background-color);
 
-    color: var(--base-color);
+    color: var(--base-color)!important;
     font-size: var(--font-size);
     text-decoration: none!important;
 }
@@ -89,7 +90,7 @@ strong{
 .pagination-item:hover, .page-link:hover{
 	background-color: var(--code-theme-background);
 	border-color: var(--theme-color);
-	color: var(--theme-color);
+	color: var(--theme-color)!important;
 	cursor: pointer;
 }
 
