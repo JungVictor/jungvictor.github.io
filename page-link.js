@@ -3,7 +3,8 @@ function pagelink(hook, vm) {
 	const regex =  /\[pagelink "(.*)":"(.*)"\]/;
 
 	hook.beforeEach(function(content, vm) {
-		const codeMatch = content.replace(regex, "<div class='page-link'><a href='$2'>$1</a></div>")
+		content = content.replace(regex, "<div class='page-link'><a href='$2'>$1</a></div>")
+		return content;
 	});
 
 }
