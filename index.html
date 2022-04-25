@@ -75,8 +75,11 @@
       plugins: [
         function(hook, vm) {
           const regex =  /\[pagelink "(.*)":"(.*)"\]/;
-          hook.beforeEach(function(content, vm) {
-            return content.replace(regex, "<div class='page-link'><a href='$2'>$1</a></div>");
+          hook.beforeEach(function(html) {
+            console.log(html)
+            var parsed = html.replace(regex, "<div class='page-link'><a href='$2'>$1</a></div>");
+            console.log(parsed);
+            return parsed;
           });
         }
       ]
