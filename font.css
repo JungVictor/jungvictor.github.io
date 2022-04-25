@@ -79,18 +79,14 @@ strong{
 
     color: var(--base-color);
     font-size: var(--font-size);
-}
-
-.page-link > a {
-	width: 100%;
-	text-decoration: none;
+    text-decoration: none!important;
 }
 
 .pagination-item-label {
 	color: var(--base-color)!important;
 }
 
-.pagination-item:hover, .page-link{
+.pagination-item:hover, .page-link:hover{
 	background-color: var(--code-theme-background);
 	border-color: var(--theme-color);
 	color: var(--theme-color);
