@@ -70,7 +70,17 @@
       themeable: {
           readyTransition : true, // default
           responsiveTables: true  // default
-      }
+      },
+
+      plugins: [
+        function(hook, vm) {
+          var regex =  /\[pagelink "(.*)":"(.*)"\]/;
+          hook.beforeEach(function(content, vm) {
+            return content;
+          });
+        }
+      ]
+
       //...
     }
   </script>
@@ -87,7 +97,6 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2/dist/docsify-copy-code.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2/dist/docsify-pagination.min.js"></script>
-  <script src="page-link.js"></script>
   
 </body>
 </html>
