@@ -29,10 +29,6 @@
       padding: 8px;
       cursor: pointer;
     }
-
-    .page-link{
-      background-color: red;
-    }
   </style>
 
   <script type="text/javascript" src="theme.js">
@@ -76,9 +72,7 @@
         function(hook, vm) {
           const regex =  /\[pagelink "(.*)":"(.*)"\]/;
           hook.beforeEach(function(html) {
-            console.log(html)
             var parsed = html.replace(regex, "<div class='page-link'><a href='$2'>$1</a></div>");
-            console.log(parsed);
             return parsed;
           });
         }
