@@ -89,7 +89,7 @@ strong{
 .pagination-item:hover, .page-link:hover{
 	background-color: var(--code-theme-background);
 	border-color: var(--theme-color)!important;
-	color: var(--theme-color);
+	color: var(--theme-color)!important;
 	cursor: pointer;
 }
 
