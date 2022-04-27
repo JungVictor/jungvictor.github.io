@@ -1,4 +1,4 @@
-# Quick Start
+# Quick Start <!-- {docsify-ignore-all} -->
 
 ## Installation
 Simply pull the code from the public GitHub repository, accessible here : https://github.com/JungVictor/MDDLib/  
