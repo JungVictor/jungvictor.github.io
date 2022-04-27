@@ -1,7 +1,7 @@
 :root {
 	--base-background-color: #2b2b2b;
 	--sidebar-background: #3c3f41;
-	--theme-color: #ff8b00;
+	--theme-color: rgb(215, 90, 140);
 	--mono-saturation: 0%;
 	--sidebar-nav-strong-color: #919191;
 }
