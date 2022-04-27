@@ -31,7 +31,7 @@ You can find below the order of priority and the syntax used to create an expres
 
 <!-- tabs:start -->
 
-#### Input
+#### **Input**
 
 ```java
 // Number of variables
@@ -52,9 +52,9 @@ model.build(result, D, N);
 result.reduce();
 ```
 
-#### Output
+#### **Output**
 
-![Graph obtained after the code execution](images/arithmetic.png)
+![Graph obtained after the code execution](./images/arithmetic.png)
 
 <!-- tabs:end -->
 
