@@ -1,0 +1,1 @@
+# Creating a MDD from a constraint <!-- {docsify-ignore-all} -->
