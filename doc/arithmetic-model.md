@@ -1,7 +1,3 @@
----
-description: Create a MDD from a series of arithmetic constraints
----
-
 # :triangular_ruler: ArithmeticModel <!-- {docsify-ignore-all} -->
 
 To build a MDD corresponding to a series of artihmetic constraint, you must first create a new model : `ArithmeticModel model = new ArithmeticModel();`.
@@ -58,7 +54,7 @@ result.reduce();
 
 #### Output
 
-![Graph obtained after the code execution](<../.gitbook/assets/arithmetic (1).png>)
+![Graph obtained after the code execution](images/arithmetic.png)
 
 <!-- tabs:end -->
 
