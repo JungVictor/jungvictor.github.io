@@ -72,7 +72,7 @@
         function(hook, vm) {
           const regex =  /\[pagelink "(.*)":"(.*)"\]/;
           hook.beforeEach(function(html) {
-            if(html.test(regex)){
+            if(regex.test(html)){
               var parsed = html.replace(regex, "<a class='page-link' href='$2'>$1</a>");
               return parsed;
             }
