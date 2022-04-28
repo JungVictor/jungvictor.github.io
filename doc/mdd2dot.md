@@ -19,7 +19,7 @@ However, you can create the graph represented by the .dot file by installing and
 
 #### **Dot**
 
- ```
+```
  digraph {
 	graph [nodesep="0.3", ranksep="0.3",fontsize=12]
 	node [shape=circle, fontsize=12]
@@ -58,11 +58,51 @@ However, you can create the graph represented by the .dot file by installing and
 	4->5 [label="3"]
 	4->5 [label="4"]
 }
- ```
+```
 
 #### **Graph**
 
-![Universal MDD of size 5 with D[v] = [0,4] for each variable v](./images/univ-5.png)
+```graphviz
+
+ digraph {
+	graph [nodesep="0.3", ranksep="0.3",fontsize=12]
+	node [shape=circle, fontsize=12]
+	edge [arrowsize=0.6]
+
+	0 [label="root"]
+	1 [label="1"]
+	2 [label="2"]
+	3 [label="3"]
+	4 [label="4"]
+	5 [label="tt"]
+
+	0->1 [label="0"]
+	0->1 [label="1"]
+	0->1 [label="2"]
+	0->1 [label="3"]
+	0->1 [label="4"]
+	1->2 [label="0"]
+	1->2 [label="1"]
+	1->2 [label="2"]
+	1->2 [label="3"]
+	1->2 [label="4"]
+	2->3 [label="0"]
+	2->3 [label="1"]
+	2->3 [label="2"]
+	2->3 [label="3"]
+	2->3 [label="4"]
+	3->4 [label="0"]
+	3->4 [label="1"]
+	3->4 [label="2"]
+	3->4 [label="3"]
+	3->4 [label="4"]
+	4->5 [label="0"]
+	4->5 [label="1"]
+	4->5 [label="2"]
+	4->5 [label="3"]
+	4->5 [label="4"]
+}
+```
 
 
 <!-- tabs:end -->

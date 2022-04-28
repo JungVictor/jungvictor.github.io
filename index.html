@@ -72,8 +72,11 @@
         function(hook, vm) {
           const regex =  /\[pagelink "(.*)":"(.*)"\]/;
           hook.beforeEach(function(html) {
-            var parsed = html.replace(regex, "<a class='page-link' href='$2'>$1</a>");
-            return parsed;
+            if(html.test(regex)){
+              var parsed = html.replace(regex, "<a class='page-link' href='$2'>$1</a>");
+              return parsed;
+            }
+            return html;
           });
         }
       ]
@@ -86,7 +89,7 @@
   <script src="https://cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-java.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
   <script src="https://unpkg.com/docsify/lib/plugins/search.js"></script> 
-
+  <script src="//unpkg.com/docsify-kroki"></script>
   <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
   <script src="https://unpkg.com/@rakutentech/docsify-code-inline/dist/index.min.js"></script>
