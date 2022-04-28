@@ -44,15 +44,15 @@
 }
 
 g.graph > polygon:first-child {
-	fill: transparent;
+	fill: transparent!important;
 }
 
 g.node > ellipse, g.edge > path, g.edge > polygon {
-	stroke: var(--base-color);
+	stroke: var(--base-color)!important;
 }
 
 g.node > text, g.edge > text, g.edge > polygon {
-	fill: var(--base-color);
+	fill: var(--base-color)!important;
 }
 
 .markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4{
