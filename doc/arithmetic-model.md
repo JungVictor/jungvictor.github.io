@@ -6,7 +6,7 @@ Then, you must add an expression using the method `model.addExpression()`. The e
 
 You can find below the order of priority and the syntax used to create an expression.
 
-## **Priorities**
+## Priorities
 
 1. Parenthesis and absolute
 2. Power
@@ -14,7 +14,7 @@ You can find below the order of priority and the syntax used to create an expres
 4. Addition and substraction
 5. Left to right
 
-## **Syntax**
+## Syntax
 
 * Variables : `{x}` with x the index of the variable.
 * Operator :
@@ -27,7 +27,7 @@ You can find below the order of priority and the syntax used to create an expres
   * Absolute : `| ... |`
   * Parenthesis : `( ... )`
 
-## **Example**
+## Example
 
 <!-- tabs:start -->
 
