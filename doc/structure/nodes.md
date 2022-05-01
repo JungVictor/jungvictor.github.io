@@ -4,6 +4,7 @@ In this section, we will see how the nodes are implemented and how the architect
 
 ## Interfaces
 There are basically four types of nodes implemented :  
+
 	- NodeInteface : The most essential type of node, only contains elementary functions. Every type of Node is implementing this interface ;
 	- StateNodeInterface : A node capable of holding a NodeState ;
 	- CostNodeInterface : A node capable of having a cost on its arcs ;
@@ -11,26 +12,17 @@ There are basically four types of nodes implemented :
 
 ```plantuml
 @startuml
-skinparam monochrome true
-skinparam ranksep 20
-skinparam dpi 150
-skinparam arrowThickness 0.7
-skinparam packageTitleAlignment left
-skinparam usecaseBorderThickness 0.4
-skinparam defaultFontSize 12
-skinparam rectangleBorderThickness 1
 
+interface Freeable
+interface NodeInterface
+interface CostNodeInterface
+interface StateNodeInterface
+interface PropertyNodeInterface
 
-rectangle "<b>Freeable</b>" as freeable
-rectangle "<b>CostNodeInterface</b>" as cost_node
-rectangle "<b>StateNodeInterface</b>" as state_node
-rectangle "<b>PropertyNodeInterface</b>" as property_node
-rectangle "<b>NodeInterface</b>" as node
-
-node --> freeable
-cost_node --> node
-state_node --> node
-property_node --> node
+NodeInterface --> Freeable
+CostNodeInterface --> NodeInterface
+StateNodeInterface --> NodeInterface
+PropertyNodeInterface --> NodeInterface
 
 @enduml
 ```
@@ -39,38 +31,33 @@ property_node --> node
 
 ```plantuml
 @startuml
-skinparam monochrome true
-skinparam ranksep 20
-skinparam dpi 150
-skinparam arrowThickness 0.7
-skinparam packageTitleAlignment left
-skinparam usecaseBorderThickness 0.4
-skinparam defaultFontSize 12
-skinparam rectangleBorderThickness 1
 
-rectangle "<b>Freeable</b>" as freeable
-rectangle "<b>CostNodeInterface</b>" as cost_node_
-rectangle "<b>StateNodeInterface</b>" as state_node_
-rectangle "<b>PropertyNodeInterface</b>" as property_node_
-rectangle "<b>NodeInterface</b>" as node_
-rectangle "<b>AbstractNode</b>" as abstract_node
-rectangle "<b>Node</b>" as node
-rectangle "<b>CostNode</b>" as cost_node
-rectangle "<b>SNode</b>" as snode
-rectangle "<b>PNode</b>" as pnode
+interface Freeable
+interface NodeInterface
+interface CostNodeInterface
+interface StateNodeInterface
+interface PropertyNodeInterface
 
-node_ --> freeable
-cost_node_ --> node_
-state_node_ --> node_
-property_node_ --> node_
-abstract_node ..> node_
-node --> abstract_node
-cost_node --> node
-cost_node ..> cost_node_
-snode --> node
-snode ..> state_node_
-pnode --> node
-pnode ..> property_node_
+abstract AbstractNode
+class Node
+class CostNode
+class SNode
+class PNode
+
+
+NodeInterface --> Freeable
+CostNodeInterface --> NodeInterface
+StateNodeInterface --> NodeInterface
+PropertyNodeInterface --> NodeInterface
+
+AbstractNode ..> NodeInterface
+Node --> AbstractNode
+CostNode --> Node
+CostNode ..> CostNodeInterface
+SNode --> Node
+SNode ..> StateNodeInterface
+PNode --> Node
+PNode ..> PropertyNodeInterface
 
 @enduml
 ```
