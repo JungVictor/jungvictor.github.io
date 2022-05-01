@@ -5,10 +5,10 @@ In this section, we will see how the nodes are implemented and how the architect
 ## Interfaces
 There are basically four types of nodes implemented :  
 
-* NodeInteface : The most essential type of node, only contains elementary functions. Every type of Node is implementing this interface ;
-* StateNodeInterface : A node capable of holding a NodeState ;
-* CostNodeInterface : A node capable of having a cost on its arcs ;
-* PropertyNodeInterface : A node capable of having a property.
+* **NodeInteface** : The most essential type of node, only contains elementary functions;
+* **StateNodeInterface** : A node capable of holding a NodeState;
+* **CostNodeInterface** : A node capable of having a cost on its arcs;
+* **PropertyNodeInterface** : A node capable of having a property.
 
 ```plantuml
 @startuml

@@ -1,5 +1,9 @@
 # MDDLib <!-- {docsify-ignore-all} -->
 
+!> **The wiki is currently under construction.**  
+As such, some pages are not yet written or complete, and some pages might be outdated. We're trying our best to update it as soon as possible.  
+
+
 MDDLib is distributed under MIT License.
 
 Copyright (c) 2021, Victor JUNG, Jean-Charles RÉGIN & Steve MALALEL.
