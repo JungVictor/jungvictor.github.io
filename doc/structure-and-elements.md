@@ -14,7 +14,7 @@ Available actions :
 The Layer implements the `Allocable` interface, meaning that you can `free` it.
 To create a Layer, call the function `Layer.create()`.
 
-> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/mdd/components/Layer.java)
+> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/dd/mdd/components/Layer.java)
 
 ## Nodes
 The Node might be the most important structure in the MDD. It contains all information about its parents and its children. Furthermore, you can associate other node to a given node, which is notably useful during operations such as intersection or union.  
@@ -37,14 +37,14 @@ The Node might be the most important structure in the MDD. It contains all infor
 * `replaceReferencesBy(Node node)` to replace **ALL** references of the current node by the given `node` ;
   * `replaceParentsReferencesBy(Node node)` to replace the parents' references
   * `replaceChildrenReferencesBy(Node node)` to replace the children's references
-* `replace(MapOf<Integer, SetOf<Integer>> values)` to replace all arcs values according to the given map. More details here : [Replace arcs' values](https://github.com/JungVictor/MDDLib/wiki/Operations#replace-arcs-values).
+* `replace(MapOf<Integer, SetOf<Integer>> values)` to replace all arcs values according to the given map. More details here : [Replace arcs' values](operation-on-the-mdd?id=replace-arcs-values).
 
 ### Node Management
 * `remove()` to remove all references of the node ;
 * `clear()` to clear all information of the node ;
 * `clearAssociations()` to clear all associations of the node.
 
-> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/mdd/components/Node.java)
+> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/dd/mdd/components/Node.java)
 
 ## Arcs
 There are two types of arcs : `InArcs` (corresponding to the parents nodes) and `OutArcs` (corresponding to the children nodes).  
@@ -60,7 +60,7 @@ Operations :
 
 To create an InArcs, simply call the `create` method in the `InArcs` class : `InArcs.create()`.
 
-> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/mdd/components/InArcs.java)
+> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/dd/mdd/components/InArcs.java)
 
 ### OutArcs : the children
 The out-going arcs (OutArcs) is represented using a simple map binding integer to node, as the MDD is determinist by default (i.e. can only have one children with a specific label).  
@@ -76,6 +76,6 @@ Operations :
 * `size()` to get the number of children ;
 * `clear()` to clear all information.
 
-> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/mdd/components/OutArcs.java)
+> [[**View in code**]](https://github.com/JungVictor/MDDLib/blob/main/core/src/main/java/dd/mdd/components/OutArcs.java)
 
 To create an OutArcs , simply call the `create` method in the `OutArcs` class : `OutArcs.create()`.

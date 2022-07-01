@@ -1,4 +1,4 @@
-# :triangular_ruler: ArithmeticModel <!-- {docsify-ignore-all} -->
+# ArithmeticModel <!-- {docsify-ignore-all} -->
 
 To build a MDD corresponding to a series of artihmetic constraint, you must first create a new model : `ArithmeticModel model = new ArithmeticModel();`.
 
@@ -11,7 +11,7 @@ You can find below the order of priority and the syntax used to create an expres
 1. Parenthesis and absolute
 2. Power
 3. Multiplication and division
-4. Addition and substraction
+4. Addition and substraction / boolean operations
 5. Left to right
 
 ## Syntax
@@ -23,6 +23,9 @@ You can find below the order of priority and the syntax used to create an expres
   * Multiply : `*`
   * Divide : `/`
   * Power : `^`
+  * And : `AND`
+  * Or : `OR`
+  * Not : `NOT`
 * Special :
   * Absolute : `| ... |`
   * Parenthesis : `( ... )`

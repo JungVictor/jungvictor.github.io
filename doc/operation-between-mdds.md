@@ -39,7 +39,7 @@ If `mdd2.size() > mdd1.size()`, or if `V` is empty, there is no inclusion.
 
 ## Concatenation
 Computing the concatenation of two MDDs means to replace the second mdd's root to the first mdd's tt. This is a pretty simple operation.  
-This operation is implemented using the `copy` operator, described [here](https://github.com/JungVictor/MDDLib/wiki/Operations#copy). It simply completely copies the first MDD, then associates the last node of the copied MDD to the root of the second mdd, then copy the second mdd from there.  
+This operation is implemented using the `copy` operator, described [here](operation-on-the-mdd?id=copy). It simply completely copies the first MDD, then associates the last node of the copied MDD to the root of the second mdd, then copy the second mdd from there.  
 
 !> **Note** :  
 This function returns a **NEW** MDD that is the concatenation, it does not directly contatenate the second mdd to the first !  

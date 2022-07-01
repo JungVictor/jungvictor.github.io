@@ -7,11 +7,11 @@ States are used to represent a constraint current state at a given node. This st
 
 This allows us to create an MDD on-the-fly by only defining these three functions.
 
-## SNode
-SNode are nodes capable of holding a state.  
-The `SNode` class simply extends the `Node` class to add two functions : `setState(NodeState state)` and `getState()`.  
+## IStateNode
+IStateNode are nodes capable of holding a state.  
+The `IStateNode` interface extends the `INode` class to add two functions : `setState(NodeState state)` and `getState()`.  
 
-?> **See also** : [Nodes](structure-and-elements?id=nodes)
+?> **See also** : [Nodes](structure/nodes)
 
 ## Among & Sequence
 

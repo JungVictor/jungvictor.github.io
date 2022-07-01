@@ -90,7 +90,7 @@ MDD sequence6 = MDDBuilder.sequence(MDD.create(), D, V, 5, 1, 2, 6);
 ```
 
 > **Note** :  
-> In certain case, it is better to generate over a binary domain. You can call the [replace arcs' values function](https://github.com/JungVictor/MDDLib/wiki/Operations#replace-arcs-values) over the MDD to replace the 1 by `V` and 0 by `D \ V`.
+> In certain case, it is better to generate over a binary domain. You can call the [replace arcs' values function](operation-on-the-mdd?id=replace-arcs-values) over the MDD to replace the 1 by `V` and 0 by `D \ V`.
 > It can be better in the case of intersection with other constraints defined over the same `D` and `V` and that can be abstracted to a binary model without loss. For instance, the GCC defined over the binary domain is simply a sum.
 
 ***

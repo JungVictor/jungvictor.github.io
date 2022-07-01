@@ -5,24 +5,24 @@ In this section, we will see how the nodes are implemented and how the architect
 ## Interfaces
 There are basically four types of nodes implemented :  
 
-* **NodeInteface** : The most essential type of node, only contains elementary functions;
-* **StateNodeInterface** : A node capable of holding a NodeState;
-* **CostNodeInterface** : A node capable of having a cost on its arcs;
-* **PropertyNodeInterface** : A node capable of having a property.
+* **INode** : The most essential type of node, only contains elementary functions;
+* **IStateNode** : A node capable of holding a NodeState;
+* **ICostNode** : A node capable of having a cost on its arcs;
+* **IPropertyNode** : A node capable of having a property.
 
 ```plantuml
 @startuml
 
 interface Freeable
-interface NodeInterface
-interface CostNodeInterface
-interface StateNodeInterface
-interface PropertyNodeInterface
+interface INode
+interface ICostNode
+interface IStateNode
+interface IPropertyNode
 
-NodeInterface --> Freeable
-CostNodeInterface --> NodeInterface
-StateNodeInterface --> NodeInterface
-PropertyNodeInterface --> NodeInterface
+INode --> Freeable
+ICostNode --> INode
+IStateNode --> INode
+IPropertyNode --> INode
 
 @enduml
 ```
@@ -33,31 +33,31 @@ PropertyNodeInterface --> NodeInterface
 @startuml
 
 interface Freeable
-interface NodeInterface
-interface CostNodeInterface
-interface StateNodeInterface
-interface PropertyNodeInterface
+interface INode
+interface ICostNode
+interface IStateNode
+interface IPropertyNode
 
 abstract AbstractNode
 class Node
 class CostNode
-class SNode
-class PNode
+class StateNode
+class PropertyNode
 
 
-NodeInterface --> Freeable
-CostNodeInterface --> NodeInterface
-StateNodeInterface --> NodeInterface
-PropertyNodeInterface --> NodeInterface
+INode --> Freeable
+ICostNode --> INode
+IStateNode --> INode
+IPropertyNode --> INode
 
-AbstractNode ..> NodeInterface
+AbstractNode ..> INode
 Node --> AbstractNode
 CostNode --> Node
-CostNode ..> CostNodeInterface
-SNode --> Node
-SNode ..> StateNodeInterface
-PNode --> Node
-PNode ..> PropertyNodeInterface
+CostNode ..> ICostNode
+StateNode --> Node
+StateNode ..> IStateNode
+PropertyNode --> Node
+PropertyNode ..> IPropertyNode
 
 @enduml
 ```
@@ -65,7 +65,7 @@ PNode ..> PropertyNodeInterface
 ## Good practice
 
 When dealing with nodes, the good practices is to always abstract as much as possible the type of the object you manipulate.  
-For instance, if you manipulate a `CostNode`, it probably is better to manipulate the object as a `CostNodeInterface` if the behaviour you're trying to implement corresponds to every kind of node implementing the `CostNodeInterface`.  
+For instance, if you manipulate a `CostNode`, it probably is better to manipulate the object as a `ICostNode` if the behaviour you're trying to implement corresponds to every kind of node implementing the `ICostNode`.  
 
-!> In general, you never want to refer to the `AbstractNode` class, as it simply provides a common base code for all nodes implementing the `NodeInterface` interface. Therefore, it is better to directly refers to it as a `NodeInterface` node.
+!> In general, you never want to refer to the `AbstractNode` class, as it simply provides a common base code for all nodes implementing the `INode` interface. Therefore, it is better to directly refers to it as a `INode` node.
 
