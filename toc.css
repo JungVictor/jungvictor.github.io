@@ -117,3 +117,9 @@ aside.nav.nothing {
   color: var(--theme-color, #42b983);
   padding-left: 10px;
 }
+
+.page_toc:before{
+  content: "Content";
+  font-weight: bold;
+  font-size: 1.1em;
+}
