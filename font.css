@@ -212,32 +212,6 @@ li.open > ul > li.file > a:hover {
 	cursor: default;
 }
 
-.toc-nav{
-	margin-top: 70px;
-	font-size: 0.85rem;
-}
-
-.page_toc {
-	padding-left: 0 !important;
-}
-
-.page_toc div {
-	border-left-width: 1px!important;
-	padding-left: 12px !important;
-}
-
-.page_toc div.active {
-	border-left-width: 2px!important;
-}
-
-.page_toc div a{
-	color: inherit !important;
-}
-
-.page_toc div.active a span{
-	color: var(--theme-color)!important;
-}
-
 img.emoji {
    height: 1em;
    width: 1em;
