@@ -38,6 +38,10 @@ aside.nav.nothing {
   color: var(--theme-color)!important;
 }
 
+.page_toc div a {
+  color: inherit;
+}
+
 
 .page_toc code {
   background-color: #f8f8f8;
@@ -93,7 +97,7 @@ aside.nav.nothing {
     font-size: 1.0em;
   }
   .page_toc a:before {
-    content: "- ";
+    content: "";
   }
   .nav {
     margin: 0 auto;
