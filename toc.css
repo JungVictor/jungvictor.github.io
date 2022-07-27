@@ -107,16 +107,17 @@ aside.nav.nothing {
   }
 }
 
+.page_toc .lv2 { padding-left: 10px; }
+.page_toc .lv3 { padding-left: 16px; }
+
 .page_toc .lv2.active {
   border-left: 2px solid;
   color: var(--theme-color, #42b983);
-  padding-left: 10px;
 }
 
 .page_toc .lv3.active {
   border-left: 0px solid;
   color: var(--theme-color, #42b983);
-  padding-left: 10px;
 }
 .page_toc .lv3:before{
   content: "";
