@@ -162,6 +162,7 @@ strong{
 .sidebar-nav li a {
 	display: flex;
 	align-items: center;
+	white-space: pre-line;
 }
 
 li.open > ul > li.file > a {
