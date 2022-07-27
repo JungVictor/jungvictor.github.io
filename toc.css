@@ -110,19 +110,23 @@ aside.nav.nothing {
 .page_toc .lv2 { padding-left: 10px; }
 .page_toc .lv3 { padding-left: 16px; }
 
+.page_toc .lv2{
+  border-left: 1px solid;
+}
 .page_toc .lv2.active {
   border-left: 2px solid;
   color: var(--theme-color, #42b983);
 }
 
 .page_toc .lv3.active {
-  border-left: 0px solid;
+  border-left: none;
   color: var(--theme-color, #42b983);
 }
 .page_toc .lv3:before{
   content: "";
   color: var(--sidebar-nav-strong-color);
   border-left: 1px solid;
+  padding-right: 4px;
 }
 .page_toc .lv3.active:before {
   border-left-width: 2px;
