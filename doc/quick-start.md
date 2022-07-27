@@ -18,7 +18,7 @@ The :open_file_folder:dev module has a dependency to the :card_file_box:core mod
 ## Beginner's Tutorial
 
 In order to better understand the basic usage of the library, a step by step tutorial is available starting from the next page:  
-[pagelink "Creating my first MDD from scratch":"#/creating-from-scratch"]  
+[pagelink "Creating my first MDD from scratch":"#/tutorial/creating-from-scratch"]  
   
 If you feel adventurous, go ahead and try the library for yourself. Do not hesitate to read the rest of the documentation / user guide; there are plenty example given to simplify the comprehension of the code.  
 It's dangerous to go alone, take this :dagger:
